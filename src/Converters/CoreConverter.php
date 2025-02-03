@@ -46,9 +46,9 @@ class CoreConverter implements CoreConverterInterface
     {
         $value = $this->string($value);
         $value = Trimmer::trim($value);
-        $pattern = '/(?:[\p{L}\p{M}\p{N}]+)\s+(?:[\p{L}\p{M}\p{N}]+)/u';
+        $pattern = '/([\p{L}\p{M}\p{N}]+)\s+([\p{L}\p{M}\p{N}]+)/u';
         if (preg_match($pattern, $value ?? '', $matches)) {
-            return Trimmer::trim($matches[0]);
+            return Trimmer::trim($matches[1] . ' ' . $matches[2]);
         }
 
         return null;
