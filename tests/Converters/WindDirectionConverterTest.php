@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Boatrace\Venture\Project\Tests\Converters;
+namespace BVP\Converter\Tests\Converters;
 
-use Boatrace\Venture\Project\Converters\CoreConverter;
-use Boatrace\Venture\Project\Converters\WindDirectionConverter;
+use BVP\Converter\Converters\CoreConverter;
+use BVP\Converter\Converters\WindDirectionConverter;
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 
 /**
@@ -14,7 +14,7 @@ use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 class WindDirectionConverterTest extends PHPUnitTestCase
 {
     /**
-     * @var \Boatrace\Venture\Project\Converters\WindDirectionConverter
+     * @var \BVP\Converter\Converters\WindDirectionConverter
      */
     protected WindDirectionConverter $converter;
 

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Boatrace\Venture\Project\Tests;
+namespace BVP\Converter\Tests;
 
 use BadMethodCallException;
 use InvalidArgumentException;
-use Boatrace\Venture\Project\Converter;
+use BVP\Converter\Converter;
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 
 /**
@@ -21,7 +21,7 @@ class ConverterExceptionTest extends PHPUnitTestCase
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage(
-            'Too few arguments to function Boatrace\Venture\Project\ConverterCore::invalid(), ' .
+            'Too few arguments to function BVP\Converter\ConverterCore::invalid(), ' .
             '0 passed and exactly 1 expected.'
         );
 
@@ -35,7 +35,7 @@ class ConverterExceptionTest extends PHPUnitTestCase
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage(
-            'Too many arguments to function Boatrace\Venture\Project\ConverterCore::invalid(), ' .
+            'Too many arguments to function BVP\Converter\ConverterCore::invalid(), ' .
             '2 passed and exactly 1 expected.'
         );
 
@@ -49,7 +49,7 @@ class ConverterExceptionTest extends PHPUnitTestCase
     {
         $this->expectException(BadMethodCallException::class);
         $this->expectExceptionMessage(
-            'Call to undefined method Boatrace\Venture\Project\Converters\CoreConverter::invalid().'
+            'Call to undefined method BVP\Converter\Converters\CoreConverter::invalid().'
         );
 
         Converter::invalid(1);

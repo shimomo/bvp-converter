@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Boatrace\Venture\Project\Converters;
+namespace BVP\Converter\Converters;
 
-use Boatrace\Venture\Project\Trimmer;
+use BVP\Trimmer\Trimmer;
 
 /**
  * @author shimomo

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Boatrace\Venture\Project\Converters;
+namespace BVP\Converter\Converters;
 
-use Boatrace\Venture\Project\Traits\ConfigLoader;
-use Boatrace\Venture\Project\Trimmer;
+use BVP\Converter\Traits\ConfigLoader;
+use BVP\Trimmer\Trimmer;
 use Illuminate\Support\Collection;
 
 /**
@@ -16,7 +16,7 @@ class WeatherConverter implements ConverterInterface
     use ConfigLoader;
 
     /**
-     * @param  \Boatrace\Venture\Project\Converters\CoreConverterInterface  $converter
+     * @param  \BVP\Converter\Converters\CoreConverterInterface  $converter
      * @return void
      */
     public function __construct(private readonly CoreConverterInterface $converter) {}

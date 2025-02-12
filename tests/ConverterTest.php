@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Boatrace\Venture\Project\Tests;
+namespace BVP\Converter\Tests;
 
-use Boatrace\Venture\Project\Converter;
+use BVP\Converter\Converter;
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 
 /**
