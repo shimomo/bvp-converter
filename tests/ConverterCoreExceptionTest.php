@@ -7,12 +7,12 @@ namespace BVP\Converter\Tests;
 use BadMethodCallException;
 use InvalidArgumentException;
 use BVP\Converter\ConverterCore;
-use PHPUnit\Framework\TestCase as PHPUnitTestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author shimomo
  */
-class ConverterCoreExceptionTest extends PHPUnitTestCase
+class ConverterCoreExceptionTest extends TestCase
 {
     /**
      * @var \BVP\Converter\ConverterCore

@@ -6,12 +6,12 @@ namespace BVP\Converter\Tests\Converters;
 
 use BVP\Converter\Converters\CoreConverter;
 use BVP\Converter\Converters\WeatherConverter;
-use PHPUnit\Framework\TestCase as PHPUnitTestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author shimomo
  */
-class WeatherConverterTest extends PHPUnitTestCase
+class WeatherConverterTest extends TestCase
 {
     /**
      * @var \BVP\Converter\Converters\WeatherConverter

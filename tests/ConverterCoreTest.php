@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace BVP\Converter\Tests;
 
 use BVP\Converter\ConverterCore;
-use PHPUnit\Framework\TestCase as PHPUnitTestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author shimomo
  */
-class ConverterCoreTest extends PHPUnitTestCase
+class ConverterCoreTest extends TestCase
 {
     /**
      * @var \BVP\Converter\ConverterCore

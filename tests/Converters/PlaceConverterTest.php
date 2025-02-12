@@ -6,12 +6,12 @@ namespace BVP\Converter\Tests\Converters;
 
 use BVP\Converter\Converters\CoreConverter;
 use BVP\Converter\Converters\PlaceConverter;
-use PHPUnit\Framework\TestCase as PHPUnitTestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author shimomo
  */
-class PlaceConverterTest extends PHPUnitTestCase
+class PlaceConverterTest extends TestCase
 {
     /**
      * @var \BVP\Converter\Converters\PlaceConverter

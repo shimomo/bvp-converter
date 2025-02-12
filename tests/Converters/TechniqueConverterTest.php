@@ -6,12 +6,12 @@ namespace BVP\Converter\Tests\Converters;
 
 use BVP\Converter\Converters\CoreConverter;
 use BVP\Converter\Converters\TechniqueConverter;
-use PHPUnit\Framework\TestCase as PHPUnitTestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author shimomo
  */
-class TechniqueConverterTest extends PHPUnitTestCase
+class TechniqueConverterTest extends TestCase
 {
     /**
      * @var \BVP\Converter\Converters\TechniqueConverter

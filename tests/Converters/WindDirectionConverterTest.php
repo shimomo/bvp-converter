@@ -6,12 +6,12 @@ namespace BVP\Converter\Tests\Converters;
 
 use BVP\Converter\Converters\CoreConverter;
 use BVP\Converter\Converters\WindDirectionConverter;
-use PHPUnit\Framework\TestCase as PHPUnitTestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author shimomo
  */
-class WindDirectionConverterTest extends PHPUnitTestCase
+class WindDirectionConverterTest extends TestCase
 {
     /**
      * @var \BVP\Converter\Converters\WindDirectionConverter
