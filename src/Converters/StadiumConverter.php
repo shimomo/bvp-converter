@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace BVP\Converter\Converters;
 
-use Boatrace\Venture\Project\Stadium;
+use BVP\Stadium\Stadium;
 use BVP\Trimmer\Trimmer;
 use Illuminate\Support\Collection;
 
