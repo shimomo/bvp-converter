@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Boatrace\Venture\Project\Tests\Converters;
+namespace BVP\Converter\Tests\Converters;
 
-use Boatrace\Venture\Project\Converters\CoreConverter;
-use Boatrace\Venture\Project\Converters\StadiumConverter;
+use BVP\Converter\Converters\CoreConverter;
+use BVP\Converter\Converters\StadiumConverter;
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 
 /**
@@ -14,7 +14,7 @@ use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 class StadiumConverterTest extends PHPUnitTestCase
 {
     /**
-     * @var \Boatrace\Venture\Project\Converters\StadiumConverter
+     * @var \BVP\Converter\Converters\StadiumConverter
      */
     protected StadiumConverter $converter;
 

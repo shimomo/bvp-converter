@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Boatrace\Venture\Project\Converters;
+namespace BVP\Converter\Converters;
 
 use Boatrace\Venture\Project\Stadium;
 use Boatrace\Venture\Project\Trimmer;
@@ -14,7 +14,7 @@ use Illuminate\Support\Collection;
 class StadiumConverter implements ConverterInterface
 {
     /**
-     * @param  \Boatrace\Venture\Project\Converters\CoreConverterInterface  $converter
+     * @param  \BVP\Converter\Converters\CoreConverterInterface  $converter
      * @return void
      */
     public function __construct(private readonly CoreConverterInterface $converter) {}

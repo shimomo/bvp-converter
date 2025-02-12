@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Boatrace\Venture\Project;
+namespace BVP\Converter;
 
 /**
  * @author shimomo
@@ -24,14 +24,14 @@ interface ConverterInterface
     public static function __callStatic(string $name, array $arguments): string|float|int|null;
 
     /**
-     * @param  \Boatrace\Venture\Project\ConverterCoreInterface|null  $converterCore
-     * @return \Boatrace\Venture\Project\ConverterInterface
+     * @param  \BVP\Converter\ConverterCoreInterface|null  $converterCore
+     * @return \BVP\Converter\ConverterInterface
      */
     public static function getInstance(?ConverterCoreInterface $converterCore = null): ConverterInterface;
 
     /**
-     * @param  \Boatrace\Venture\Project\ConverterCoreInterface|null  $converterCore
-     * @return \Boatrace\Venture\Project\ConverterInterface
+     * @param  \BVP\Converter\ConverterCoreInterface|null  $converterCore
+     * @return \BVP\Converter\ConverterInterface
      */
     public static function createInstance(?ConverterCoreInterface $converterCore = null): ConverterInterface;
 
