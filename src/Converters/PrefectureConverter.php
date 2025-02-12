@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace BVP\Converter\Converters;
 
-use Boatrace\Venture\Project\Prefecture;
+use BVP\Prefecture\Prefecture;
 use BVP\Trimmer\Trimmer;
 use Illuminate\Support\Collection;
 
