@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace BVP\Converter\Converters;
 
 use BVP\Converter\Traits\ConfigLoader;
-use Boatrace\Venture\Project\Trimmer;
+use BVP\Trimmer\Trimmer;
 use Illuminate\Support\Collection;
 
 /**
