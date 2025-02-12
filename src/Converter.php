@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BVP\Converter;
+namespace Boatrace\Venture\Project;
 
 /**
  * @author shimomo
@@ -10,12 +10,12 @@ namespace BVP\Converter;
 class Converter implements ConverterInterface
 {
     /**
-     * @var \BVP\Converter\ConverterInterface|null
+     * @var \Boatrace\Venture\Project\ConverterInterface|null
      */
     private static ?ConverterInterface $instance;
 
     /**
-     * @param  \BVP\Converter\ConverterCoreInterface  $converter
+     * @param  \Boatrace\Venture\Project\ConverterCoreInterface  $converter
      * @return void
      */
     public function __construct(private readonly ConverterCoreInterface $converter) {}
@@ -41,8 +41,8 @@ class Converter implements ConverterInterface
     }
 
     /**
-     * @param  \BVP\Converter\ConverterCoreInterface|null  $converterCore
-     * @return \BVP\Converter\ConverterInterface
+     * @param  \Boatrace\Venture\Project\ConverterCoreInterface|null  $converterCore
+     * @return \Boatrace\Venture\Project\ConverterInterface
      */
     public static function getInstance(?ConverterCoreInterface $converterCore = null): ConverterInterface
     {
@@ -50,8 +50,8 @@ class Converter implements ConverterInterface
     }
 
     /**
-     * @param  \BVP\Converter\ConverterCoreInterface|null  $converterCore
-     * @return \BVP\Converter\ConverterInterface
+     * @param  \Boatrace\Venture\Project\ConverterCoreInterface|null  $converterCore
+     * @return \Boatrace\Venture\Project\ConverterInterface
      */
     public static function createInstance(?ConverterCoreInterface $converterCore = null): ConverterInterface
     {

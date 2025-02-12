@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BVP\Converter;
+namespace Boatrace\Venture\Project;
 
 /**
  * @author shimomo

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace BVP\Converter\Converters;
+namespace Boatrace\Venture\Project\Converters;
 
-use BVP\Converter\Traits\ConfigLoader;
-use BVP\Trimmer\Trimmer;
+use Boatrace\Venture\Project\Traits\ConfigLoader;
+use Boatrace\Venture\Project\Trimmer;
 use Illuminate\Support\Collection;
 
 /**
@@ -16,7 +16,7 @@ class ClassConverter implements ConverterInterface
     use ConfigLoader;
 
     /**
-     * @param  \BVP\Converter\Converters\CoreConverterInterface  $converter
+     * @param  \Boatrace\Venture\Project\Converters\CoreConverterInterface  $converter
      * @return void
      */
     public function __construct(private readonly CoreConverterInterface $converter) {}

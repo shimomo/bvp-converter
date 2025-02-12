@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace BVP\Converter\Tests;
+namespace Boatrace\Venture\Project\Tests;
 
-use BVP\Converter\ConverterCore;
+use Boatrace\Venture\Project\ConverterCore;
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 
 /**
@@ -13,7 +13,7 @@ use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 class ConverterCoreTest extends PHPUnitTestCase
 {
     /**
-     * @var \BVP\Converter\ConverterCore
+     * @var \Boatrace\Venture\Project\ConverterCore
      */
     protected ConverterCore $converter;
 

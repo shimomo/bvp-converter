@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace BVP\Converter;
+namespace Boatrace\Venture\Project;
 
 use BadMethodCallException;
 use InvalidArgumentException;
-use BVP\Converter\Converters\ClassConverter;
-use BVP\Converter\Converters\ConverterInterface;
-use BVP\Converter\Converters\CoreConverter;
-use BVP\Converter\Converters\PlaceConverter;
-use BVP\Converter\Converters\PrefectureConverter;
-use BVP\Converter\Converters\StadiumConverter;
-use BVP\Converter\Converters\TechniqueConverter;
-use BVP\Converter\Converters\WeatherConverter;
-use BVP\Converter\Converters\WindDirectionConverter;
+use Boatrace\Venture\Project\Converters\ClassConverter;
+use Boatrace\Venture\Project\Converters\ConverterInterface;
+use Boatrace\Venture\Project\Converters\CoreConverter;
+use Boatrace\Venture\Project\Converters\PlaceConverter;
+use Boatrace\Venture\Project\Converters\PrefectureConverter;
+use Boatrace\Venture\Project\Converters\StadiumConverter;
+use Boatrace\Venture\Project\Converters\TechniqueConverter;
+use Boatrace\Venture\Project\Converters\WeatherConverter;
+use Boatrace\Venture\Project\Converters\WindDirectionConverter;
 
 /**
  * @author shimomo
@@ -86,7 +86,7 @@ class ConverterCore implements ConverterCoreInterface
     /**
      * @param  string  $specificConverterClass
      * @param  string  $coreConverterClass
-     * @return \BVP\Converter\Converters\ConverterInterface
+     * @return \Boatrace\Venture\Project\Converters\ConverterInterface
      */
     private function getConverterInstance(string $specificConverterClass, string $coreConverterClass): ConverterInterface
     {

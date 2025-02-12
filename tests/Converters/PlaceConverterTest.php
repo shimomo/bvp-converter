@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace BVP\Converter\Tests\Converters;
+namespace Boatrace\Venture\Project\Tests\Converters;
 
-use BVP\Converter\Converters\CoreConverter;
-use BVP\Converter\Converters\PlaceConverter;
+use Boatrace\Venture\Project\Converters\CoreConverter;
+use Boatrace\Venture\Project\Converters\PlaceConverter;
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 
 /**
@@ -14,7 +14,7 @@ use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 class PlaceConverterTest extends PHPUnitTestCase
 {
     /**
-     * @var \BVP\Converter\Converters\PlaceConverter
+     * @var \Boatrace\Venture\Project\Converters\PlaceConverter
      */
     protected PlaceConverter $converter;
 

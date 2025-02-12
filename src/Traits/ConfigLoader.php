@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BVP\Converter\Traits;
+namespace Boatrace\Venture\Project\Traits;
 
 use Illuminate\Support\Collection;
 use InvalidArgumentException;
