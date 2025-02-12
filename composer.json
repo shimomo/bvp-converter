@@ -1,6 +1,6 @@
 {
     "name": "bvp/converter",
-    "description": "Converter for boatrace attributes",
+    "description": "The BVP Converter package for Boatrace.",
     "keywords": ["library", "boatrace", "converter"],
     "license": "MIT",
     "type": "library",
