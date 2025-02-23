@@ -12,7 +12,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * @author shimomo
  */
-class ConverterExceptionTest extends TestCase
+final class ConverterExceptionTest extends TestCase
 {
     /**
      * @return void

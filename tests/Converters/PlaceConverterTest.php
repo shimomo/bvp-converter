@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * @author shimomo
  */
-class PlaceConverterTest extends TestCase
+final class PlaceConverterTest extends TestCase
 {
     /**
      * @var \BVP\Converter\Converters\PlaceConverter

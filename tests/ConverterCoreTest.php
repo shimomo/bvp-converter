@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * @author shimomo
  */
-class ConverterCoreTest extends TestCase
+final class ConverterCoreTest extends TestCase
 {
     /**
      * @var \BVP\Converter\ConverterCore

@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * @author shimomo
  */
-class ClassConverterTest extends TestCase
+final class ClassConverterTest extends TestCase
 {
     /**
      * @var \BVP\Converter\Converters\ClassConverter

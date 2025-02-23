@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * @author shimomo
  */
-class ConverterTest extends TestCase
+final class ConverterTest extends TestCase
 {
     /**
      * @return void

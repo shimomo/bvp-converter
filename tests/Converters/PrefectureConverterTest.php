@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * @author shimomo
  */
-class PrefectureConverterTest extends TestCase
+final class PrefectureConverterTest extends TestCase
 {
     /**
      * @var \BVP\Converter\Converters\PrefectureConverter

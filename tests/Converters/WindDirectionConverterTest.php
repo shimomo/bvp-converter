@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * @author shimomo
  */
-class WindDirectionConverterTest extends TestCase
+final class WindDirectionConverterTest extends TestCase
 {
     /**
      * @var \BVP\Converter\Converters\WindDirectionConverter

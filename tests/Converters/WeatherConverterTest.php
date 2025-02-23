@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * @author shimomo
  */
-class WeatherConverterTest extends TestCase
+final class WeatherConverterTest extends TestCase
 {
     /**
      * @var \BVP\Converter\Converters\WeatherConverter

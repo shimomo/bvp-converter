@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * @author shimomo
  */
-class StadiumConverterTest extends TestCase
+final class StadiumConverterTest extends TestCase
 {
     /**
      * @var \BVP\Converter\Converters\StadiumConverter
