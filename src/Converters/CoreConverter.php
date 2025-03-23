@@ -15,7 +15,11 @@ class CoreConverter implements CoreConverterInterface
      * @param array
      */
     private array $names = [
+        '小神野紀代子' => '小神野 紀代子',
         '堀之内紀代子' => '堀之内 紀代子',
+        '大久保信一郎' => '大久保 信一郎',
+        'マイケル田代' => 'マイケル 田代',
+        '安河内鈴之介' => '安河内 鈴之介',
     ];
 
     /**
