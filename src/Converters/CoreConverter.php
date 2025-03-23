@@ -12,6 +12,13 @@ use BVP\Trimmer\Trimmer;
 class CoreConverter implements CoreConverterInterface
 {
     /**
+     * @param array
+     */
+    private array $names = [
+        '堀之内紀代子' => '堀之内 紀代子',
+    ];
+
+    /**
      * @param  string|float|int|null  $value
      * @return string|null
      */
@@ -49,6 +56,10 @@ class CoreConverter implements CoreConverterInterface
         $pattern = '/([\p{L}\p{M}\p{N}]+)\s+([\p{L}\p{M}\p{N}]+)/u';
         if (preg_match($pattern, $value ?? '', $matches)) {
             return Trimmer::trim($matches[1] . ' ' . $matches[2]);
+        }
+
+        if (array_key_exists($value, $this->names)) {
+            return $this->names[$value];
         }
 
         return null;
