@@ -27,7 +27,7 @@ class PlaceConverter implements ConverterInterface
      */
     public function placeId(string|int|null $value): ?int
     {
-        return $this->resolvePlace($value)?->get('id');
+        return $this->resolvePlace($value)?->get('number');
     }
 
     /**
@@ -70,7 +70,7 @@ class PlaceConverter implements ConverterInterface
     private function searchPlace(string $value): ?Collection
     {
         $config = $this->loadConfig('place');
-        return $config->firstWhere('id', $value)
+        return $config->firstWhere('number', $value)
             ?? $config->firstWhere('name', $value)
             ?? $config->firstWhere('short_name', $value);
     }

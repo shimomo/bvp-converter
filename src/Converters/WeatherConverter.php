@@ -27,7 +27,7 @@ class WeatherConverter implements ConverterInterface
      */
     public function weatherId(string|int|null $value): ?int
     {
-        return $this->resolveWeather($value)?->get('id');
+        return $this->resolveWeather($value)?->get('number');
     }
 
     /**
@@ -70,7 +70,7 @@ class WeatherConverter implements ConverterInterface
     private function searchWeather(string $value): ?Collection
     {
         $config = $this->loadConfig('weather');
-        return $config->firstWhere('id', $value)
+        return $config->firstWhere('number', $value)
             ?? $config->firstWhere('name', $value)
             ?? $config->firstWhere('short_name', $value);
     }

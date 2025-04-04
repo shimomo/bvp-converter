@@ -27,7 +27,7 @@ class TechniqueConverter implements ConverterInterface
      */
     public function techniqueId(string|int|null $value): ?int
     {
-        return $this->resolveTechnique($value)?->get('id');
+        return $this->resolveTechnique($value)?->get('number');
     }
 
     /**
@@ -70,7 +70,7 @@ class TechniqueConverter implements ConverterInterface
     private function searchTechnique(string $value): ?Collection
     {
         $config = $this->loadConfig('technique');
-        return $config->firstWhere('id', $value)
+        return $config->firstWhere('number', $value)
             ?? $config->firstWhere('name', $value)
             ?? $config->firstWhere('short_name', $value);
     }

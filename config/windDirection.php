@@ -4,71 +4,71 @@ declare(strict_types=1);
 
 return [
     [
-        'id' => 1,
+        'number' => 1,
         'name' => '北',
     ],
     [
-        'id' => 2,
+        'number' => 2,
         'name' => '北北東',
     ],
     [
-        'id' => 3,
+        'number' => 3,
         'name' => '北東',
     ],
     [
-        'id' => 4,
+        'number' => 4,
         'name' => '東北東',
     ],
     [
-        'id' => 5,
+        'number' => 5,
         'name' => '東',
     ],
     [
-        'id' => 6,
+        'number' => 6,
         'name' => '東南東',
     ],
     [
-        'id' => 7,
+        'number' => 7,
         'name' => '南東',
     ],
     [
-        'id' => 8,
+        'number' => 8,
         'name' => '南南東',
     ],
     [
-        'id' => 9,
+        'number' => 9,
         'name' => '南',
     ],
     [
-        'id' => 10,
+        'number' => 10,
         'name' => '南南西',
     ],
     [
-        'id' => 11,
+        'number' => 11,
         'name' => '南西',
     ],
     [
-        'id' => 12,
+        'number' => 12,
         'name' => '西南西',
     ],
     [
-        'id' => 13,
+        'number' => 13,
         'name' => '西',
     ],
     [
-        'id' => 14,
+        'number' => 14,
         'name' => '西北西',
     ],
     [
-        'id' => 15,
+        'number' => 15,
         'name' => '北西',
     ],
     [
-        'id' => 16,
+        'number' => 16,
         'name' => '北北西',
     ],
     [
-        'id' => 17,
+        'number' => 17,
         'name' => '無風',
     ],
 ];

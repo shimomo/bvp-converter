@@ -27,7 +27,7 @@ class ClassConverter implements ConverterInterface
      */
     public function classId(string|int|null $value): ?int
     {
-        return $this->resolveClass($value)?->get('id');
+        return $this->resolveClass($value)?->get('number');
     }
 
     /**
@@ -70,7 +70,7 @@ class ClassConverter implements ConverterInterface
     private function searchClass(string $value): ?Collection
     {
         $config = $this->loadConfig('class');
-        return $config->firstWhere('id', $value)
+        return $config->firstWhere('number', $value)
             ?? $config->firstWhere('name', $value)
             ?? $config->firstWhere('short_name', $value);
     }

@@ -27,7 +27,7 @@ class WindDirectionConverter implements ConverterInterface
      */
     public function windDirectionId(string|int|null $value): ?int
     {
-        return $this->resolveWindDirection($value)?->get('id');
+        return $this->resolveWindDirection($value)?->get('number');
     }
 
     /**
@@ -61,7 +61,7 @@ class WindDirectionConverter implements ConverterInterface
     private function searchWindDirection(string $value): ?Collection
     {
         $config = $this->loadConfig('windDirection');
-        return $config->firstWhere('id', $value)
+        return $config->firstWhere('number', $value)
             ?? $config->firstWhere('name', $value);
     }
 }
