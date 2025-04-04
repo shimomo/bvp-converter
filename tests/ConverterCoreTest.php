@@ -174,12 +174,12 @@ final class ConverterCoreTest extends TestCase
      */
     public function testClassId(): void
     {
-        $this->assertSame(4, $this->converter->classId(4));
-        $this->assertSame(4, $this->converter->classId('B2級'));
-        $this->assertSame(4, $this->converter->classId('B2'));
-        $this->assertNull($this->converter->classId(-1));
-        $this->assertNull($this->converter->classId('競艇'));
-        $this->assertNull($this->converter->classId(null));
+        $this->assertSame(4, $this->converter->classNumber(4));
+        $this->assertSame(4, $this->converter->classNumber('B2級'));
+        $this->assertSame(4, $this->converter->classNumber('B2'));
+        $this->assertNull($this->converter->classNumber(-1));
+        $this->assertNull($this->converter->classNumber('競艇'));
+        $this->assertNull($this->converter->classNumber(null));
     }
 
     /**

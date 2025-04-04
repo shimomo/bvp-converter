@@ -25,7 +25,7 @@ class ClassConverter implements ConverterInterface
      * @param  string|int|null  $value
      * @return int|null
      */
-    public function classId(string|int|null $value): ?int
+    public function classNumber(string|int|null $value): ?int
     {
         return $this->resolveClass($value)?->get('number');
     }
