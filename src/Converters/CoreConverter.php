@@ -84,7 +84,7 @@ class CoreConverter implements CoreConverterInterface
      * @param  string|null  $value
      * @return int|null
      */
-    public function late(?string $value): ?int
+    public function convertToLateCount(?string $value): ?int
     {
         $value = $this->convertToString($value);
         $value = Trimmer::ltrim($value, 'L');

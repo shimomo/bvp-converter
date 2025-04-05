@@ -86,11 +86,11 @@ final class ConverterTest extends TestCase
      */
     public function testLate(): void
     {
-        $this->assertSame(0, Converter::late('L0'));
-        $this->assertSame(1, Converter::late('L1'));
-        $this->assertSame(0, Converter::late('L０'));
-        $this->assertSame(1, Converter::late('L１'));
-        $this->assertNull(Converter::late(null));
+        $this->assertSame(0, Converter::convertToLateCount('L0'));
+        $this->assertSame(1, Converter::convertToLateCount('L1'));
+        $this->assertSame(0, Converter::convertToLateCount('L０'));
+        $this->assertSame(1, Converter::convertToLateCount('L１'));
+        $this->assertNull(Converter::convertToLateCount(null));
     }
 
     /**

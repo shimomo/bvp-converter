@@ -99,11 +99,11 @@ final class ConverterCoreTest extends TestCase
      */
     public function testLate(): void
     {
-        $this->assertSame(0, $this->converter->late('L0'));
-        $this->assertSame(1, $this->converter->late('L1'));
-        $this->assertSame(0, $this->converter->late('L０'));
-        $this->assertSame(1, $this->converter->late('L１'));
-        $this->assertNull($this->converter->late(null));
+        $this->assertSame(0, $this->converter->convertToLateCount('L0'));
+        $this->assertSame(1, $this->converter->convertToLateCount('L1'));
+        $this->assertSame(0, $this->converter->convertToLateCount('L０'));
+        $this->assertSame(1, $this->converter->convertToLateCount('L１'));
+        $this->assertNull($this->converter->convertToLateCount(null));
     }
 
     /**
