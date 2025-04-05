@@ -125,10 +125,10 @@ final class CoreConverterTest extends TestCase
      */
     public function testWind(): void
     {
-        $this->assertSame(2, $this->converter->wind('2m'));
-        $this->assertSame(2, $this->converter->wind('2'));
-        $this->assertSame(0, $this->converter->wind('m'));
-        $this->assertNull($this->converter->wind(null));
+        $this->assertSame(2, $this->converter->convertToWind('2m'));
+        $this->assertSame(2, $this->converter->convertToWind('2'));
+        $this->assertSame(0, $this->converter->convertToWind('m'));
+        $this->assertNull($this->converter->convertToWind(null));
     }
 
     /**

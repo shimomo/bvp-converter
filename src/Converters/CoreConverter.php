@@ -114,7 +114,7 @@ class CoreConverter implements CoreConverterInterface
      * @param  string|null  $value
      * @return int|null
      */
-    public function wind(?string $value): ?int
+    public function convertToWind(?string $value): ?int
     {
         $value = $this->convertToString($value);
         $value = Trimmer::rtrim($value, 'm');

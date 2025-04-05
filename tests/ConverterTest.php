@@ -115,10 +115,10 @@ final class ConverterTest extends TestCase
      */
     public function testWind(): void
     {
-        $this->assertSame(2, Converter::wind('2m'));
-        $this->assertSame(2, Converter::wind('2'));
-        $this->assertSame(0, Converter::wind('m'));
-        $this->assertNull(Converter::wind(null));
+        $this->assertSame(2, Converter::convertToWind('2m'));
+        $this->assertSame(2, Converter::convertToWind('2'));
+        $this->assertSame(0, Converter::convertToWind('m'));
+        $this->assertNull(Converter::convertToWind(null));
     }
 
     /**
