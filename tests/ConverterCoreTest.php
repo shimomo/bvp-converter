@@ -87,11 +87,11 @@ final class ConverterCoreTest extends TestCase
      */
     public function testFlying(): void
     {
-        $this->assertSame(0, $this->converter->flying('F0'));
-        $this->assertSame(1, $this->converter->flying('F1'));
-        $this->assertSame(0, $this->converter->flying('F０'));
-        $this->assertSame(1, $this->converter->flying('F１'));
-        $this->assertNull($this->converter->flying(null));
+        $this->assertSame(0, $this->converter->convertToFlyingCount('F0'));
+        $this->assertSame(1, $this->converter->convertToFlyingCount('F1'));
+        $this->assertSame(0, $this->converter->convertToFlyingCount('F０'));
+        $this->assertSame(1, $this->converter->convertToFlyingCount('F１'));
+        $this->assertNull($this->converter->convertToFlyingCount(null));
     }
 
     /**

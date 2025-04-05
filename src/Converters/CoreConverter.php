@@ -73,7 +73,7 @@ class CoreConverter implements CoreConverterInterface
      * @param  string|null  $value
      * @return int|null
      */
-    public function flying(?string $value): ?int
+    public function convertToFlyingCount(?string $value): ?int
     {
         $value = $this->convertToString($value);
         $value = Trimmer::ltrim($value, 'F');

@@ -74,11 +74,11 @@ final class ConverterTest extends TestCase
      */
     public function testFlying(): void
     {
-        $this->assertSame(0, Converter::flying('F0'));
-        $this->assertSame(1, Converter::flying('F1'));
-        $this->assertSame(0, Converter::flying('F０'));
-        $this->assertSame(1, Converter::flying('F１'));
-        $this->assertNull(Converter::flying(null));
+        $this->assertSame(0, Converter::convertToFlyingCount('F0'));
+        $this->assertSame(1, Converter::convertToFlyingCount('F1'));
+        $this->assertSame(0, Converter::convertToFlyingCount('F０'));
+        $this->assertSame(1, Converter::convertToFlyingCount('F１'));
+        $this->assertNull(Converter::convertToFlyingCount(null));
     }
 
     /**
