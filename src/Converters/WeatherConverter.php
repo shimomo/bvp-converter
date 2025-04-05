@@ -25,7 +25,7 @@ class WeatherConverter implements ConverterInterface
      * @param  string|int|null  $value
      * @return int|null
      */
-    public function weatherNumber(string|int|null $value): ?int
+    public function convertToWeatherNumber(string|int|null $value): ?int
     {
         return $this->resolveWeather($value)?->get('number');
     }
@@ -34,7 +34,7 @@ class WeatherConverter implements ConverterInterface
      * @param  string|int|null  $value
      * @return string|null
      */
-    public function weatherName(string|int|null $value): ?string
+    public function convertToWeatherName(string|int|null $value): ?string
     {
         return $this->resolveWeather($value)?->get('name');
     }
@@ -43,7 +43,7 @@ class WeatherConverter implements ConverterInterface
      * @param  string|int|null  $value
      * @return string|null
      */
-    public function weatherShortName(string|int|null $value): ?string
+    public function convertToWeatherShortName(string|int|null $value): ?string
     {
         return $this->resolveWeather($value)?->get('short_name');
     }

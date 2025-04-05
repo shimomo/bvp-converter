@@ -278,12 +278,12 @@ final class ConverterTest extends TestCase
      */
     public function testWeatherId(): void
     {
-        $this->assertSame(2, Converter::weatherNumber(2));
-        $this->assertSame(2, Converter::weatherNumber('曇り'));
-        $this->assertSame(2, Converter::weatherNumber('曇'));
-        $this->assertNull(Converter::weatherNumber(-1));
-        $this->assertNull(Converter::weatherNumber('競艇'));
-        $this->assertNull(Converter::weatherNumber(null));
+        $this->assertSame(2, Converter::convertToWeatherNumber(2));
+        $this->assertSame(2, Converter::convertToWeatherNumber('曇り'));
+        $this->assertSame(2, Converter::convertToWeatherNumber('曇'));
+        $this->assertNull(Converter::convertToWeatherNumber(-1));
+        $this->assertNull(Converter::convertToWeatherNumber('競艇'));
+        $this->assertNull(Converter::convertToWeatherNumber(null));
     }
 
     /**
@@ -291,12 +291,12 @@ final class ConverterTest extends TestCase
      */
     public function testWeatherName(): void
     {
-        $this->assertSame('曇り', Converter::weatherName(2));
-        $this->assertSame('曇り', Converter::weatherName('曇り'));
-        $this->assertSame('曇り', Converter::weatherName('曇'));
-        $this->assertNull(Converter::weatherName(-1));
-        $this->assertNull(Converter::weatherName('競艇'));
-        $this->assertNull(Converter::weatherName(null));
+        $this->assertSame('曇り', Converter::convertToWeatherName(2));
+        $this->assertSame('曇り', Converter::convertToWeatherName('曇り'));
+        $this->assertSame('曇り', Converter::convertToWeatherName('曇'));
+        $this->assertNull(Converter::convertToWeatherName(-1));
+        $this->assertNull(Converter::convertToWeatherName('競艇'));
+        $this->assertNull(Converter::convertToWeatherName(null));
     }
 
     /**
@@ -304,12 +304,12 @@ final class ConverterTest extends TestCase
      */
     public function testWeatherShortName(): void
     {
-        $this->assertSame('曇', Converter::weatherShortName(2));
-        $this->assertSame('曇', Converter::weatherShortName('曇り'));
-        $this->assertSame('曇', Converter::weatherShortName('曇'));
-        $this->assertNull(Converter::weatherShortName(-1));
-        $this->assertNull(Converter::weatherShortName('競艇'));
-        $this->assertNull(Converter::weatherShortName(null));
+        $this->assertSame('曇', Converter::convertToWeatherShortName(2));
+        $this->assertSame('曇', Converter::convertToWeatherShortName('曇り'));
+        $this->assertSame('曇', Converter::convertToWeatherShortName('曇'));
+        $this->assertNull(Converter::convertToWeatherShortName(-1));
+        $this->assertNull(Converter::convertToWeatherShortName('競艇'));
+        $this->assertNull(Converter::convertToWeatherShortName(null));
     }
 
     /**

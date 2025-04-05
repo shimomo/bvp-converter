@@ -36,7 +36,7 @@ class ConverterCore implements ConverterCoreInterface
         'prefecture' => PrefectureConverter::class,
         'stadium' => StadiumConverter::class,
         'convertToTechnique' => TechniqueConverter::class,
-        'weather' => WeatherConverter::class,
+        'convertToWeather' => WeatherConverter::class,
         'windDirection' => WindDirectionConverter::class,
     ];
 
