@@ -33,11 +33,11 @@ final class PlaceConverterTest extends TestCase
      */
     public function testPlaceId(): void
     {
-        $this->assertSame(8, $this->converter->placeNumber(8));
-        $this->assertSame(8, $this->converter->placeNumber('エンスト失格'));
-        $this->assertSame(8, $this->converter->placeNumber('エ'));
-        $this->assertNull($this->converter->placeNumber('競艇'));
-        $this->assertNull($this->converter->placeNumber(null));
+        $this->assertSame(8, $this->converter->converterToPlaceNumber(8));
+        $this->assertSame(8, $this->converter->converterToPlaceNumber('エンスト失格'));
+        $this->assertSame(8, $this->converter->converterToPlaceNumber('エ'));
+        $this->assertNull($this->converter->converterToPlaceNumber('競艇'));
+        $this->assertNull($this->converter->converterToPlaceNumber(null));
     }
 
     /**
@@ -45,11 +45,11 @@ final class PlaceConverterTest extends TestCase
      */
     public function testPlaceName(): void
     {
-        $this->assertSame('エンスト失格', $this->converter->placeName(8));
-        $this->assertSame('エンスト失格', $this->converter->placeName('エンスト失格'));
-        $this->assertSame('エンスト失格', $this->converter->placeName('エ'));
-        $this->assertNull($this->converter->placeName('競艇'));
-        $this->assertNull($this->converter->placeName(null));
+        $this->assertSame('エンスト失格', $this->converter->converterToPlaceName(8));
+        $this->assertSame('エンスト失格', $this->converter->converterToPlaceName('エンスト失格'));
+        $this->assertSame('エンスト失格', $this->converter->converterToPlaceName('エ'));
+        $this->assertNull($this->converter->converterToPlaceName('競艇'));
+        $this->assertNull($this->converter->converterToPlaceName(null));
     }
 
     /**
@@ -57,10 +57,10 @@ final class PlaceConverterTest extends TestCase
      */
     public function testPlaceShortName(): void
     {
-        $this->assertSame('エ', $this->converter->placeShortName(8));
-        $this->assertSame('エ', $this->converter->placeShortName('エンスト失格'));
-        $this->assertSame('エ', $this->converter->placeShortName('エ'));
-        $this->assertNull($this->converter->placeShortName('競艇'));
-        $this->assertNull($this->converter->placeShortName(null));
+        $this->assertSame('エ', $this->converter->converterToPlaceShortName(8));
+        $this->assertSame('エ', $this->converter->converterToPlaceShortName('エンスト失格'));
+        $this->assertSame('エ', $this->converter->converterToPlaceShortName('エ'));
+        $this->assertNull($this->converter->converterToPlaceShortName('競艇'));
+        $this->assertNull($this->converter->converterToPlaceShortName(null));
     }
 }

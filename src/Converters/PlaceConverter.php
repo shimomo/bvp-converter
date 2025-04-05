@@ -25,7 +25,7 @@ class PlaceConverter implements ConverterInterface
      * @param  string|int|null  $value
      * @return int|null
      */
-    public function placeNumber(string|int|null $value): ?int
+    public function converterToPlaceNumber(string|int|null $value): ?int
     {
         return $this->resolvePlace($value)?->get('number');
     }
@@ -34,7 +34,7 @@ class PlaceConverter implements ConverterInterface
      * @param  string|int|null  $value
      * @return string|null
      */
-    public function placeName(string|int|null $value): ?string
+    public function converterToPlaceName(string|int|null $value): ?string
     {
         return $this->resolvePlace($value)?->get('name');
     }
@@ -43,7 +43,7 @@ class PlaceConverter implements ConverterInterface
      * @param  string|int|null  $value
      * @return string|null
      */
-    public function placeShortName(string|int|null $value): ?string
+    public function converterToPlaceShortName(string|int|null $value): ?string
     {
         return $this->resolvePlace($value)?->get('short_name');
     }
