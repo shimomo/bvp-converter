@@ -53,7 +53,7 @@ class CoreConverter implements CoreConverterInterface
      * @param  string|null  $value
      * @return string|null
      */
-    public function name(?string $value): ?string
+    public function convertToName(?string $value): ?string
     {
         $value = $this->convertToString($value);
         $value = Trimmer::trim($value);

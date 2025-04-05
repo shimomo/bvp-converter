@@ -72,14 +72,14 @@ final class ConverterCoreTest extends TestCase
      */
     public function testName(): void
     {
-        $this->assertSame('加藤 峻二', $this->converter->name('加藤 峻二'));
-        $this->assertSame('加藤 峻二', $this->converter->name(' 加藤 峻二'));
-        $this->assertSame('加藤 峻二', $this->converter->name('加藤 峻二 '));
-        $this->assertSame('加藤 峻二', $this->converter->name('加藤　峻二'));
-        $this->assertSame('加藤 峻二', $this->converter->name('　加藤　峻二'));
-        $this->assertSame('加藤 峻二', $this->converter->name('加藤　峻二　'));
-        $this->assertNull($this->converter->name('加藤峻二'));
-        $this->assertNull($this->converter->name(null));
+        $this->assertSame('加藤 峻二', $this->converter->convertToName('加藤 峻二'));
+        $this->assertSame('加藤 峻二', $this->converter->convertToName(' 加藤 峻二'));
+        $this->assertSame('加藤 峻二', $this->converter->convertToName('加藤 峻二 '));
+        $this->assertSame('加藤 峻二', $this->converter->convertToName('加藤　峻二'));
+        $this->assertSame('加藤 峻二', $this->converter->convertToName('　加藤　峻二'));
+        $this->assertSame('加藤 峻二', $this->converter->convertToName('加藤　峻二　'));
+        $this->assertNull($this->converter->convertToName('加藤峻二'));
+        $this->assertNull($this->converter->convertToName(null));
     }
 
     /**

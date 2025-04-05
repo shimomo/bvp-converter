@@ -59,14 +59,14 @@ final class ConverterTest extends TestCase
      */
     public function testName(): void
     {
-        $this->assertSame('加藤 峻二', Converter::name('加藤 峻二'));
-        $this->assertSame('加藤 峻二', Converter::name(' 加藤 峻二'));
-        $this->assertSame('加藤 峻二', Converter::name('加藤 峻二 '));
-        $this->assertSame('加藤 峻二', Converter::name('加藤　峻二'));
-        $this->assertSame('加藤 峻二', Converter::name('　加藤　峻二'));
-        $this->assertSame('加藤 峻二', Converter::name('加藤　峻二　'));
-        $this->assertNull(Converter::name('加藤峻二'));
-        $this->assertNull(Converter::name(null));
+        $this->assertSame('加藤 峻二', Converter::convertToName('加藤 峻二'));
+        $this->assertSame('加藤 峻二', Converter::convertToName(' 加藤 峻二'));
+        $this->assertSame('加藤 峻二', Converter::convertToName('加藤 峻二 '));
+        $this->assertSame('加藤 峻二', Converter::convertToName('加藤　峻二'));
+        $this->assertSame('加藤 峻二', Converter::convertToName('　加藤　峻二'));
+        $this->assertSame('加藤 峻二', Converter::convertToName('加藤　峻二　'));
+        $this->assertNull(Converter::convertToName('加藤峻二'));
+        $this->assertNull(Converter::convertToName(null));
     }
 
     /**
