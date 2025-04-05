@@ -126,12 +126,12 @@ final class ConverterCoreTest extends TestCase
      */
     public function testPlaceId(): void
     {
-        $this->assertSame(8, $this->converter->converterToPlaceNumber(8));
-        $this->assertSame(8, $this->converter->converterToPlaceNumber('エンスト失格'));
-        $this->assertSame(8, $this->converter->converterToPlaceNumber('エ'));
-        $this->assertNull($this->converter->converterToPlaceName(-1));
-        $this->assertNull($this->converter->converterToPlaceName('競艇'));
-        $this->assertNull($this->converter->converterToPlaceName(null));
+        $this->assertSame(8, $this->converter->convertToPlaceNumber(8));
+        $this->assertSame(8, $this->converter->convertToPlaceNumber('エンスト失格'));
+        $this->assertSame(8, $this->converter->convertToPlaceNumber('エ'));
+        $this->assertNull($this->converter->convertToPlaceName(-1));
+        $this->assertNull($this->converter->convertToPlaceName('競艇'));
+        $this->assertNull($this->converter->convertToPlaceName(null));
     }
 
     /**
@@ -139,12 +139,12 @@ final class ConverterCoreTest extends TestCase
      */
     public function testPlaceName(): void
     {
-        $this->assertSame('エンスト失格', $this->converter->converterToPlaceName(8));
-        $this->assertSame('エンスト失格', $this->converter->converterToPlaceName('エンスト失格'));
-        $this->assertSame('エンスト失格', $this->converter->converterToPlaceName('エ'));
-        $this->assertNull($this->converter->converterToPlaceName(-1));
-        $this->assertNull($this->converter->converterToPlaceName('競艇'));
-        $this->assertNull($this->converter->converterToPlaceName(null));
+        $this->assertSame('エンスト失格', $this->converter->convertToPlaceName(8));
+        $this->assertSame('エンスト失格', $this->converter->convertToPlaceName('エンスト失格'));
+        $this->assertSame('エンスト失格', $this->converter->convertToPlaceName('エ'));
+        $this->assertNull($this->converter->convertToPlaceName(-1));
+        $this->assertNull($this->converter->convertToPlaceName('競艇'));
+        $this->assertNull($this->converter->convertToPlaceName(null));
     }
 
     /**
@@ -152,12 +152,12 @@ final class ConverterCoreTest extends TestCase
      */
     public function testPlaceShortName(): void
     {
-        $this->assertSame('エ', $this->converter->converterToPlaceShortName(8));
-        $this->assertSame('エ', $this->converter->converterToPlaceShortName('エンスト失格'));
-        $this->assertSame('エ', $this->converter->converterToPlaceShortName('エ'));
-        $this->assertNull($this->converter->converterToPlaceShortName(-1));
-        $this->assertNull($this->converter->converterToPlaceShortName('競艇'));
-        $this->assertNull($this->converter->converterToPlaceShortName(null));
+        $this->assertSame('エ', $this->converter->convertToPlaceShortName(8));
+        $this->assertSame('エ', $this->converter->convertToPlaceShortName('エンスト失格'));
+        $this->assertSame('エ', $this->converter->convertToPlaceShortName('エ'));
+        $this->assertNull($this->converter->convertToPlaceShortName(-1));
+        $this->assertNull($this->converter->convertToPlaceShortName('競艇'));
+        $this->assertNull($this->converter->convertToPlaceShortName(null));
     }
 
     /**

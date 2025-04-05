@@ -113,12 +113,12 @@ final class ConverterTest extends TestCase
      */
     public function testPlaceId(): void
     {
-        $this->assertSame(8, Converter::converterToPlaceNumber(8));
-        $this->assertSame(8, Converter::converterToPlaceNumber('エンスト失格'));
-        $this->assertSame(8, Converter::converterToPlaceNumber('エ'));
-        $this->assertNull(Converter::converterToPlaceName(-1));
-        $this->assertNull(Converter::converterToPlaceName('競艇'));
-        $this->assertNull(Converter::converterToPlaceName(null));
+        $this->assertSame(8, Converter::convertToPlaceNumber(8));
+        $this->assertSame(8, Converter::convertToPlaceNumber('エンスト失格'));
+        $this->assertSame(8, Converter::convertToPlaceNumber('エ'));
+        $this->assertNull(Converter::convertToPlaceName(-1));
+        $this->assertNull(Converter::convertToPlaceName('競艇'));
+        $this->assertNull(Converter::convertToPlaceName(null));
     }
 
     /**
@@ -126,12 +126,12 @@ final class ConverterTest extends TestCase
      */
     public function testPlaceName(): void
     {
-        $this->assertSame('エンスト失格', Converter::converterToPlaceName(8));
-        $this->assertSame('エンスト失格', Converter::converterToPlaceName('エンスト失格'));
-        $this->assertSame('エンスト失格', Converter::converterToPlaceName('エ'));
-        $this->assertNull(Converter::converterToPlaceName(-1));
-        $this->assertNull(Converter::converterToPlaceName('競艇'));
-        $this->assertNull(Converter::converterToPlaceName(null));
+        $this->assertSame('エンスト失格', Converter::convertToPlaceName(8));
+        $this->assertSame('エンスト失格', Converter::convertToPlaceName('エンスト失格'));
+        $this->assertSame('エンスト失格', Converter::convertToPlaceName('エ'));
+        $this->assertNull(Converter::convertToPlaceName(-1));
+        $this->assertNull(Converter::convertToPlaceName('競艇'));
+        $this->assertNull(Converter::convertToPlaceName(null));
     }
 
     /**
@@ -139,12 +139,12 @@ final class ConverterTest extends TestCase
      */
     public function testPlaceShortName(): void
     {
-        $this->assertSame('エ', Converter::converterToPlaceShortName(8));
-        $this->assertSame('エ', Converter::converterToPlaceShortName('エンスト失格'));
-        $this->assertSame('エ', Converter::converterToPlaceShortName('エ'));
-        $this->assertNull(Converter::converterToPlaceShortName(-1));
-        $this->assertNull(Converter::converterToPlaceShortName('競艇'));
-        $this->assertNull(Converter::converterToPlaceShortName(null));
+        $this->assertSame('エ', Converter::convertToPlaceShortName(8));
+        $this->assertSame('エ', Converter::convertToPlaceShortName('エンスト失格'));
+        $this->assertSame('エ', Converter::convertToPlaceShortName('エ'));
+        $this->assertNull(Converter::convertToPlaceShortName(-1));
+        $this->assertNull(Converter::convertToPlaceShortName('競艇'));
+        $this->assertNull(Converter::convertToPlaceShortName(null));
     }
 
     /**
