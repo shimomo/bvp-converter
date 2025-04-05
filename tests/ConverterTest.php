@@ -17,13 +17,13 @@ final class ConverterTest extends TestCase
      */
     public function testString(): void
     {
-        $this->assertSame('1', Converter::string(1));
-        $this->assertSame('1.2', Converter::string(1.2));
-        $this->assertSame('1', Converter::string('１'));
-        $this->assertSame('1.2', Converter::string('１.２'));
-        $this->assertSame('加藤 峻二', Converter::string('加藤 峻二'));
-        $this->assertSame('加藤 峻二', Converter::string('加藤　峻二'));
-        $this->assertNull(Converter::string(null));
+        $this->assertSame('1', Converter::convertToString(1));
+        $this->assertSame('1.2', Converter::convertToString(1.2));
+        $this->assertSame('1', Converter::convertToString('１'));
+        $this->assertSame('1.2', Converter::convertToString('１.２'));
+        $this->assertSame('加藤 峻二', Converter::convertToString('加藤 峻二'));
+        $this->assertSame('加藤 峻二', Converter::convertToString('加藤　峻二'));
+        $this->assertNull(Converter::convertToString(null));
     }
 
     /**

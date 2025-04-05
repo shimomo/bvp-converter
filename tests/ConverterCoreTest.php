@@ -30,13 +30,13 @@ final class ConverterCoreTest extends TestCase
      */
     public function testString(): void
     {
-        $this->assertSame('1', $this->converter->string(1));
-        $this->assertSame('1.2', $this->converter->string(1.2));
-        $this->assertSame('1', $this->converter->string('１'));
-        $this->assertSame('1.2', $this->converter->string('１.２'));
-        $this->assertSame('加藤 峻二', $this->converter->string('加藤 峻二'));
-        $this->assertSame('加藤 峻二', $this->converter->string('加藤　峻二'));
-        $this->assertNull($this->converter->string(null));
+        $this->assertSame('1', $this->converter->convertToString(1));
+        $this->assertSame('1.2', $this->converter->convertToString(1.2));
+        $this->assertSame('1', $this->converter->convertToString('１'));
+        $this->assertSame('1.2', $this->converter->convertToString('１.２'));
+        $this->assertSame('加藤 峻二', $this->converter->convertToString('加藤 峻二'));
+        $this->assertSame('加藤 峻二', $this->converter->convertToString('加藤　峻二'));
+        $this->assertNull($this->converter->convertToString(null));
     }
 
     /**

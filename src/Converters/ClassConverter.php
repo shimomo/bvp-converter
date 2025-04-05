@@ -58,7 +58,7 @@ class ClassConverter implements ConverterInterface
             return null;
         }
 
-        $value = $this->converter->string($value);
+        $value = $this->converter->convertToString($value);
         $value = Trimmer::trim($value);
         return $this->searchClass($value);
     }
