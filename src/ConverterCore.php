@@ -9,6 +9,7 @@ use InvalidArgumentException;
 use BVP\Converter\Converters\ClassConverter;
 use BVP\Converter\Converters\ConverterInterface;
 use BVP\Converter\Converters\CoreConverter;
+use BVP\Converter\Converters\CoreParser;
 use BVP\Converter\Converters\PlaceConverter;
 use BVP\Converter\Converters\PrefectureConverter;
 use BVP\Converter\Converters\StadiumConverter;
@@ -38,6 +39,7 @@ class ConverterCore implements ConverterCoreInterface
         'convertToTechnique' => TechniqueConverter::class,
         'convertToWeather' => WeatherConverter::class,
         'convertToWindDirection' => WindDirectionConverter::class,
+        'parse' => CoreParser::class,
     ];
 
     /**
