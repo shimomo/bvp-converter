@@ -213,9 +213,9 @@ final class ConverterCoreTest extends TestCase
      */
     public function testPlaceId(): void
     {
-        $this->assertSame(8, $this->converter->placeId(8));
-        $this->assertSame(8, $this->converter->placeId('エンスト失格'));
-        $this->assertSame(8, $this->converter->placeId('エ'));
+        $this->assertSame(8, $this->converter->placeNumber(8));
+        $this->assertSame(8, $this->converter->placeNumber('エンスト失格'));
+        $this->assertSame(8, $this->converter->placeNumber('エ'));
         $this->assertNull($this->converter->placeName(-1));
         $this->assertNull($this->converter->placeName('競艇'));
         $this->assertNull($this->converter->placeName(null));

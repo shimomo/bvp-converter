@@ -200,9 +200,9 @@ final class ConverterTest extends TestCase
      */
     public function testPlaceId(): void
     {
-        $this->assertSame(8, Converter::placeId(8));
-        $this->assertSame(8, Converter::placeId('エンスト失格'));
-        $this->assertSame(8, Converter::placeId('エ'));
+        $this->assertSame(8, Converter::placeNumber(8));
+        $this->assertSame(8, Converter::placeNumber('エンスト失格'));
+        $this->assertSame(8, Converter::placeNumber('エ'));
         $this->assertNull(Converter::placeName(-1));
         $this->assertNull(Converter::placeName('競艇'));
         $this->assertNull(Converter::placeName(null));

@@ -25,7 +25,7 @@ class PlaceConverter implements ConverterInterface
      * @param  string|int|null  $value
      * @return int|null
      */
-    public function placeId(string|int|null $value): ?int
+    public function placeNumber(string|int|null $value): ?int
     {
         return $this->resolvePlace($value)?->get('number');
     }

@@ -33,11 +33,11 @@ final class PlaceConverterTest extends TestCase
      */
     public function testPlaceId(): void
     {
-        $this->assertSame(8, $this->converter->placeId(8));
-        $this->assertSame(8, $this->converter->placeId('エンスト失格'));
-        $this->assertSame(8, $this->converter->placeId('エ'));
-        $this->assertNull($this->converter->placeId('競艇'));
-        $this->assertNull($this->converter->placeId(null));
+        $this->assertSame(8, $this->converter->placeNumber(8));
+        $this->assertSame(8, $this->converter->placeNumber('エンスト失格'));
+        $this->assertSame(8, $this->converter->placeNumber('エ'));
+        $this->assertNull($this->converter->placeNumber('競艇'));
+        $this->assertNull($this->converter->placeNumber(null));
     }
 
     /**
