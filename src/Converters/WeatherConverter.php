@@ -25,7 +25,7 @@ class WeatherConverter implements ConverterInterface
      * @param  string|int|null  $value
      * @return int|null
      */
-    public function weatherId(string|int|null $value): ?int
+    public function weatherNumber(string|int|null $value): ?int
     {
         return $this->resolveWeather($value)?->get('number');
     }

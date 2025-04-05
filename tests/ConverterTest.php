@@ -278,12 +278,12 @@ final class ConverterTest extends TestCase
      */
     public function testWeatherId(): void
     {
-        $this->assertSame(2, Converter::weatherId(2));
-        $this->assertSame(2, Converter::weatherId('曇り'));
-        $this->assertSame(2, Converter::weatherId('曇'));
-        $this->assertNull(Converter::weatherId(-1));
-        $this->assertNull(Converter::weatherId('競艇'));
-        $this->assertNull(Converter::weatherId(null));
+        $this->assertSame(2, Converter::weatherNumber(2));
+        $this->assertSame(2, Converter::weatherNumber('曇り'));
+        $this->assertSame(2, Converter::weatherNumber('曇'));
+        $this->assertNull(Converter::weatherNumber(-1));
+        $this->assertNull(Converter::weatherNumber('競艇'));
+        $this->assertNull(Converter::weatherNumber(null));
     }
 
     /**
