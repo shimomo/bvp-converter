@@ -35,7 +35,7 @@ class CoreConverter implements CoreConverterInterface
      * @param  string|float|int|null  $value
      * @return float|null
      */
-    public function float(string|float|int|null $value): ?float
+    public function convertToFloat(string|float|int|null $value): ?float
     {
         return is_null($value) ? null : (float) $value;
     }
@@ -105,8 +105,8 @@ class CoreConverter implements CoreConverterInterface
 
         return match (substr($value, 0, 1)) {
             'L' => null,
-            'F' => $this->float('-0' . Trimmer::ltrim($value, 'F')),
-            default => $this->float('0' . $value),
+            'F' => $this->convertToFloat('-0' . Trimmer::ltrim($value, 'F')),
+            default => $this->convertToFloat('0' . $value),
         };
     }
 
@@ -155,6 +155,6 @@ class CoreConverter implements CoreConverterInterface
     {
         $value = $this->convertToString($value);
         $value = Trimmer::rtrim($value, '℃');
-        return $this->float($value);
+        return $this->convertToFloat($value);
     }
 }

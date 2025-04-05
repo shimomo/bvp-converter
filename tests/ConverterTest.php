@@ -45,13 +45,13 @@ final class ConverterTest extends TestCase
      */
     public function testInt(): void
     {
-        $this->assertSame(1.0, Converter::float(1));
-        $this->assertSame(1.2, Converter::float(1.2));
-        $this->assertSame(0.0, Converter::float('１'));
-        $this->assertSame(0.0, Converter::float('１.２'));
-        $this->assertSame(0.0, Converter::float('加藤 峻二'));
-        $this->assertSame(0.0, Converter::float('加藤　峻二'));
-        $this->assertNull(Converter::float(null));
+        $this->assertSame(1.0, Converter::convertToFloat(1));
+        $this->assertSame(1.2, Converter::convertToFloat(1.2));
+        $this->assertSame(0.0, Converter::convertToFloat('１'));
+        $this->assertSame(0.0, Converter::convertToFloat('１.２'));
+        $this->assertSame(0.0, Converter::convertToFloat('加藤 峻二'));
+        $this->assertSame(0.0, Converter::convertToFloat('加藤　峻二'));
+        $this->assertNull(Converter::convertToFloat(null));
     }
 
     /**

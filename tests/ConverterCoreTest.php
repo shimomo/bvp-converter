@@ -58,13 +58,13 @@ final class ConverterCoreTest extends TestCase
      */
     public function testInt(): void
     {
-        $this->assertSame(1.0, $this->converter->float(1));
-        $this->assertSame(1.2, $this->converter->float(1.2));
-        $this->assertSame(0.0, $this->converter->float('１'));
-        $this->assertSame(0.0, $this->converter->float('１.２'));
-        $this->assertSame(0.0, $this->converter->float('加藤 峻二'));
-        $this->assertSame(0.0, $this->converter->float('加藤　峻二'));
-        $this->assertNull($this->converter->float(null));
+        $this->assertSame(1.0, $this->converter->convertToFloat(1));
+        $this->assertSame(1.2, $this->converter->convertToFloat(1.2));
+        $this->assertSame(0.0, $this->converter->convertToFloat('１'));
+        $this->assertSame(0.0, $this->converter->convertToFloat('１.２'));
+        $this->assertSame(0.0, $this->converter->convertToFloat('加藤 峻二'));
+        $this->assertSame(0.0, $this->converter->convertToFloat('加藤　峻二'));
+        $this->assertNull($this->converter->convertToFloat(null));
     }
 
     /**

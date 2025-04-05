@@ -19,7 +19,7 @@ interface CoreConverterInterface extends ConverterInterface
      * @param  string|float|int|null  $value
      * @return float|null
      */
-    public function float(string|float|int|null $value): ?float;
+    public function convertToFloat(string|float|int|null $value): ?float;
     /**
      * @param  string|float|int|null  $value
      * @return int|null
