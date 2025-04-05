@@ -161,12 +161,12 @@ final class ConverterTest extends TestCase
      */
     public function testClassId(): void
     {
-        $this->assertSame(4, Converter::classNumber(4));
-        $this->assertSame(4, Converter::classNumber('B2級'));
-        $this->assertSame(4, Converter::classNumber('B2'));
-        $this->assertNull(Converter::classNumber(-1));
-        $this->assertNull(Converter::classNumber('競艇'));
-        $this->assertNull(Converter::classNumber(null));
+        $this->assertSame(4, Converter::convertToClassNumber(4));
+        $this->assertSame(4, Converter::convertToClassNumber('B2級'));
+        $this->assertSame(4, Converter::convertToClassNumber('B2'));
+        $this->assertNull(Converter::convertToClassNumber(-1));
+        $this->assertNull(Converter::convertToClassNumber('競艇'));
+        $this->assertNull(Converter::convertToClassNumber(null));
     }
 
     /**
@@ -174,12 +174,12 @@ final class ConverterTest extends TestCase
      */
     public function testClassName(): void
     {
-        $this->assertSame('B2級', Converter::className(4));
-        $this->assertSame('B2級', Converter::className('B2級'));
-        $this->assertSame('B2級', Converter::className('B2'));
-        $this->assertNull(Converter::className(-1));
-        $this->assertNull(Converter::className('競艇'));
-        $this->assertNull(Converter::className(null));
+        $this->assertSame('B2級', Converter::convertToClassName(4));
+        $this->assertSame('B2級', Converter::convertToClassName('B2級'));
+        $this->assertSame('B2級', Converter::convertToClassName('B2'));
+        $this->assertNull(Converter::convertToClassName(-1));
+        $this->assertNull(Converter::convertToClassName('競艇'));
+        $this->assertNull(Converter::convertToClassName(null));
     }
 
     /**
@@ -187,12 +187,12 @@ final class ConverterTest extends TestCase
      */
     public function testClassShortName(): void
     {
-        $this->assertSame('B2', Converter::classShortName(4));
-        $this->assertSame('B2', Converter::classShortName('B2級'));
-        $this->assertSame('B2', Converter::classShortName('B2'));
-        $this->assertNull(Converter::classShortName(-1));
-        $this->assertNull(Converter::classShortName('競艇'));
-        $this->assertNull(Converter::classShortName(null));
+        $this->assertSame('B2', Converter::convertToClassShortName(4));
+        $this->assertSame('B2', Converter::convertToClassShortName('B2級'));
+        $this->assertSame('B2', Converter::convertToClassShortName('B2'));
+        $this->assertNull(Converter::convertToClassShortName(-1));
+        $this->assertNull(Converter::convertToClassShortName('競艇'));
+        $this->assertNull(Converter::convertToClassShortName(null));
     }
 
     /**

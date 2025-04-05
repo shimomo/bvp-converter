@@ -25,7 +25,7 @@ class ClassConverter implements ConverterInterface
      * @param  string|int|null  $value
      * @return int|null
      */
-    public function classNumber(string|int|null $value): ?int
+    public function convertToClassNumber(string|int|null $value): ?int
     {
         return $this->resolveClass($value)?->get('number');
     }
@@ -34,7 +34,7 @@ class ClassConverter implements ConverterInterface
      * @param  string|int|null  $value
      * @return string|null
      */
-    public function className(string|int|null $value): ?string
+    public function convertToClassName(string|int|null $value): ?string
     {
         return $this->resolveClass($value)?->get('name');
     }
@@ -43,7 +43,7 @@ class ClassConverter implements ConverterInterface
      * @param  string|int|null  $value
      * @return string|null
      */
-    public function classShortName(string|int|null $value): ?string
+    public function convertToClassShortName(string|int|null $value): ?string
     {
         return $this->resolveClass($value)?->get('short_name');
     }

@@ -30,7 +30,7 @@ class ConverterCore implements ConverterCoreInterface
      * @var array
      */
     private array $converterClasses = [
-        'class' => ClassConverter::class,
+        'convertToClass' => ClassConverter::class,
         'core' => CoreConverter::class,
         'place' => PlaceConverter::class,
         'prefecture' => PrefectureConverter::class,
