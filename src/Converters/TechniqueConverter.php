@@ -25,7 +25,7 @@ class TechniqueConverter implements ConverterInterface
      * @param  string|int|null  $value
      * @return int|null
      */
-    public function techniqueNumber(string|int|null $value): ?int
+    public function convertToTechniqueNumber(string|int|null $value): ?int
     {
         return $this->resolveTechnique($value)?->get('number');
     }
@@ -34,7 +34,7 @@ class TechniqueConverter implements ConverterInterface
      * @param  string|int|null  $value
      * @return string|null
      */
-    public function techniqueName(string|int|null $value): ?string
+    public function convertToTechniqueName(string|int|null $value): ?string
     {
         return $this->resolveTechnique($value)?->get('name');
     }
@@ -43,7 +43,7 @@ class TechniqueConverter implements ConverterInterface
      * @param  string|int|null  $value
      * @return string|null
      */
-    public function techniqueShortName(string|int|null $value): ?string
+    public function convertToTechniqueShortName(string|int|null $value): ?string
     {
         return $this->resolveTechnique($value)?->get('short_name');
     }

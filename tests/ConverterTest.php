@@ -239,12 +239,12 @@ final class ConverterTest extends TestCase
      */
     public function testTechniqueId(): void
     {
-        $this->assertSame(2, Converter::techniqueNumber(2));
-        $this->assertSame(2, Converter::techniqueNumber('差し'));
-        $this->assertSame(2, Converter::techniqueNumber('差'));
-        $this->assertNull(Converter::techniqueName(-1));
-        $this->assertNull(Converter::techniqueName('競艇'));
-        $this->assertNull(Converter::techniqueName(null));
+        $this->assertSame(2, Converter::convertToTechniqueNumber(2));
+        $this->assertSame(2, Converter::convertToTechniqueNumber('差し'));
+        $this->assertSame(2, Converter::convertToTechniqueNumber('差'));
+        $this->assertNull(Converter::convertToTechniqueName(-1));
+        $this->assertNull(Converter::convertToTechniqueName('競艇'));
+        $this->assertNull(Converter::convertToTechniqueName(null));
     }
 
     /**
@@ -252,12 +252,12 @@ final class ConverterTest extends TestCase
      */
     public function testTechniqueName(): void
     {
-        $this->assertSame('差し', Converter::techniqueName(2));
-        $this->assertSame('差し', Converter::techniqueName('差し'));
-        $this->assertSame('差し', Converter::techniqueName('差'));
-        $this->assertNull(Converter::techniqueName(-1));
-        $this->assertNull(Converter::techniqueName('競艇'));
-        $this->assertNull(Converter::techniqueName(null));
+        $this->assertSame('差し', Converter::convertToTechniqueName(2));
+        $this->assertSame('差し', Converter::convertToTechniqueName('差し'));
+        $this->assertSame('差し', Converter::convertToTechniqueName('差'));
+        $this->assertNull(Converter::convertToTechniqueName(-1));
+        $this->assertNull(Converter::convertToTechniqueName('競艇'));
+        $this->assertNull(Converter::convertToTechniqueName(null));
     }
 
     /**
@@ -265,12 +265,12 @@ final class ConverterTest extends TestCase
      */
     public function testTechniqueShortName(): void
     {
-        $this->assertSame('差', Converter::techniqueShortName(2));
-        $this->assertSame('差', Converter::techniqueShortName('差し'));
-        $this->assertSame('差', Converter::techniqueShortName('差'));
-        $this->assertNull(Converter::techniqueShortName(-1));
-        $this->assertNull(Converter::techniqueShortName('競艇'));
-        $this->assertNull(Converter::techniqueShortName(null));
+        $this->assertSame('差', Converter::convertToTechniqueShortName(2));
+        $this->assertSame('差', Converter::convertToTechniqueShortName('差し'));
+        $this->assertSame('差', Converter::convertToTechniqueShortName('差'));
+        $this->assertNull(Converter::convertToTechniqueShortName(-1));
+        $this->assertNull(Converter::convertToTechniqueShortName('競艇'));
+        $this->assertNull(Converter::convertToTechniqueShortName(null));
     }
 
     /**
