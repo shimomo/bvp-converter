@@ -11,7 +11,7 @@ use Illuminate\Support\Collection;
 /**
  * @author shimomo
  */
-class ClassConverter implements ConverterInterface
+class ClassConverter implements ClassConverterInterface
 {
     use ConfigLoader;
 
