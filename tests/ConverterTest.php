@@ -31,13 +31,13 @@ final class ConverterTest extends TestCase
      */
     public function testFloat(): void
     {
-        $this->assertSame(1, Converter::int(1));
-        $this->assertSame(1, Converter::int(1.2));
-        $this->assertSame(0, Converter::int('１'));
-        $this->assertSame(0, Converter::int('１.２'));
-        $this->assertSame(0, Converter::int('加藤 峻二'));
-        $this->assertSame(0, Converter::int('加藤　峻二'));
-        $this->assertNull(Converter::int(null));
+        $this->assertSame(1, Converter::convertToInt(1));
+        $this->assertSame(1, Converter::convertToInt(1.2));
+        $this->assertSame(0, Converter::convertToInt('１'));
+        $this->assertSame(0, Converter::convertToInt('１.２'));
+        $this->assertSame(0, Converter::convertToInt('加藤 峻二'));
+        $this->assertSame(0, Converter::convertToInt('加藤　峻二'));
+        $this->assertNull(Converter::convertToInt(null));
     }
 
     /**

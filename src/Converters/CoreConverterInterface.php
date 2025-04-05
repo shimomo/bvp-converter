@@ -24,5 +24,5 @@ interface CoreConverterInterface extends ConverterInterface
      * @param  string|float|int|null  $value
      * @return int|null
      */
-    public function int(string|float|int|null $value): ?int;
+    public function convertToInt(string|float|int|null $value): ?int;
 }

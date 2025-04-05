@@ -44,7 +44,7 @@ class CoreConverter implements CoreConverterInterface
      * @param  string|float|int|null  $value
      * @return int|null
      */
-    public function int(string|float|int|null $value): ?int
+    public function convertToInt(string|float|int|null $value): ?int
     {
         return is_null($value) ? null : (int) $value;
     }
@@ -77,7 +77,7 @@ class CoreConverter implements CoreConverterInterface
     {
         $value = $this->convertToString($value);
         $value = Trimmer::ltrim($value, 'F');
-        return $this->int($value);
+        return $this->convertToInt($value);
     }
 
     /**
@@ -88,7 +88,7 @@ class CoreConverter implements CoreConverterInterface
     {
         $value = $this->convertToString($value);
         $value = Trimmer::ltrim($value, 'L');
-        return $this->int($value);
+        return $this->convertToInt($value);
     }
 
     /**
@@ -118,7 +118,7 @@ class CoreConverter implements CoreConverterInterface
     {
         $value = $this->convertToString($value);
         $value = Trimmer::rtrim($value, 'm');
-        return $this->int($value);
+        return $this->convertToInt($value);
     }
 
     /**
@@ -130,7 +130,7 @@ class CoreConverter implements CoreConverterInterface
         $value = $this->convertToString($value);
         $value = Trimmer::trim($value);
         if (preg_match('/is-wind(\d+)/u', $value ?? '', $matches)) {
-            return $this->int($matches[1]);
+            return $this->convertToInt($matches[1]);
         }
 
         return null;
@@ -144,7 +144,7 @@ class CoreConverter implements CoreConverterInterface
     {
         $value = $this->convertToString($value);
         $value = Trimmer::rtrim($value, 'cm');
-        return $this->int($value);
+        return $this->convertToInt($value);
     }
 
     /**
