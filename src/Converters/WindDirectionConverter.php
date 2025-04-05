@@ -25,7 +25,7 @@ class WindDirectionConverter implements ConverterInterface
      * @param  string|int|null  $value
      * @return int|null
      */
-    public function windDirectionNumber(string|int|null $value): ?int
+    public function convertToWindDirectionNumber(string|int|null $value): ?int
     {
         return $this->resolveWindDirection($value)?->get('number');
     }
@@ -34,7 +34,7 @@ class WindDirectionConverter implements ConverterInterface
      * @param  string|int|null  $value
      * @return string|null
      */
-    public function windDirectionName(string|int|null $value): ?string
+    public function convertToWindDirectionName(string|int|null $value): ?string
     {
         return $this->resolveWindDirection($value)?->get('name');
     }

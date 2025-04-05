@@ -330,11 +330,11 @@ final class ConverterCoreTest extends TestCase
      */
     public function testWindDirectionId(): void
     {
-        $this->assertSame(4, $this->converter->windDirectionNumber(4));
-        $this->assertSame(4, $this->converter->windDirectionNumber('東北東'));
-        $this->assertNull($this->converter->windDirectionNumber(-1));
-        $this->assertNull($this->converter->windDirectionNumber('競艇'));
-        $this->assertNull($this->converter->windDirectionNumber(null));
+        $this->assertSame(4, $this->converter->convertToWindDirectionNumber(4));
+        $this->assertSame(4, $this->converter->convertToWindDirectionNumber('東北東'));
+        $this->assertNull($this->converter->convertToWindDirectionNumber(-1));
+        $this->assertNull($this->converter->convertToWindDirectionNumber('競艇'));
+        $this->assertNull($this->converter->convertToWindDirectionNumber(null));
     }
 
     /**
@@ -342,11 +342,11 @@ final class ConverterCoreTest extends TestCase
      */
     public function testWindDirectionName(): void
     {
-        $this->assertSame('東北東', $this->converter->windDirectionName(4));
-        $this->assertSame('東北東', $this->converter->windDirectionName('東北東'));
-        $this->assertNull($this->converter->windDirectionName(-1));
-        $this->assertNull($this->converter->windDirectionName('競艇'));
-        $this->assertNull($this->converter->windDirectionName(null));
+        $this->assertSame('東北東', $this->converter->convertToWindDirectionName(4));
+        $this->assertSame('東北東', $this->converter->convertToWindDirectionName('東北東'));
+        $this->assertNull($this->converter->convertToWindDirectionName(-1));
+        $this->assertNull($this->converter->convertToWindDirectionName('競艇'));
+        $this->assertNull($this->converter->convertToWindDirectionName(null));
     }
 
     /**
