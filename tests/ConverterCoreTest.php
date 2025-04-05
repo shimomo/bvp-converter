@@ -330,11 +330,11 @@ final class ConverterCoreTest extends TestCase
      */
     public function testWindDirectionId(): void
     {
-        $this->assertSame(4, $this->converter->windDirectionId(4));
-        $this->assertSame(4, $this->converter->windDirectionId('東北東'));
-        $this->assertNull($this->converter->windDirectionId(-1));
-        $this->assertNull($this->converter->windDirectionId('競艇'));
-        $this->assertNull($this->converter->windDirectionId(null));
+        $this->assertSame(4, $this->converter->windDirectionNumber(4));
+        $this->assertSame(4, $this->converter->windDirectionNumber('東北東'));
+        $this->assertNull($this->converter->windDirectionNumber(-1));
+        $this->assertNull($this->converter->windDirectionNumber('競艇'));
+        $this->assertNull($this->converter->windDirectionNumber(null));
     }
 
     /**
