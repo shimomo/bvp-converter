@@ -98,16 +98,16 @@ final class ConverterTest extends TestCase
      */
     public function testStartTiming(): void
     {
-        $this->assertSame(-0.02, Converter::startTiming('F.02'));
-        $this->assertSame(0.02, Converter::startTiming('0.02'));
-        $this->assertNull(Converter::startTiming('F.2'));
-        $this->assertNull(Converter::startTiming('F'));
-        $this->assertNull(Converter::startTiming('0.2'));
-        $this->assertNull(Converter::startTiming('2'));
-        $this->assertNull(Converter::startTiming('L.02'));
-        $this->assertNull(Converter::startTiming('L.2'));
-        $this->assertNull(Converter::startTiming('L'));
-        $this->assertNull(Converter::startTiming(null));
+        $this->assertSame(-0.02, Converter::convertToStartTiming('F.02'));
+        $this->assertSame(0.02, Converter::convertToStartTiming('0.02'));
+        $this->assertNull(Converter::convertToStartTiming('F.2'));
+        $this->assertNull(Converter::convertToStartTiming('F'));
+        $this->assertNull(Converter::convertToStartTiming('0.2'));
+        $this->assertNull(Converter::convertToStartTiming('2'));
+        $this->assertNull(Converter::convertToStartTiming('L.02'));
+        $this->assertNull(Converter::convertToStartTiming('L.2'));
+        $this->assertNull(Converter::convertToStartTiming('L'));
+        $this->assertNull(Converter::convertToStartTiming(null));
     }
 
     /**

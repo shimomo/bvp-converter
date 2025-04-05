@@ -95,7 +95,7 @@ class CoreConverter implements CoreConverterInterface
      * @param  string|null  $value
      * @return float|null
      */
-    public function startTiming(?string $value): ?float
+    public function convertToStartTiming(?string $value): ?float
     {
         $value = $this->convertToString($value);
         $value = Trimmer::trim($value);
