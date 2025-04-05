@@ -25,7 +25,7 @@ class TechniqueConverter implements ConverterInterface
      * @param  string|int|null  $value
      * @return int|null
      */
-    public function techniqueId(string|int|null $value): ?int
+    public function techniqueNumber(string|int|null $value): ?int
     {
         return $this->resolveTechnique($value)?->get('number');
     }

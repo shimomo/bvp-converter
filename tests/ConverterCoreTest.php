@@ -252,9 +252,9 @@ final class ConverterCoreTest extends TestCase
      */
     public function testTechniqueId(): void
     {
-        $this->assertSame(2, $this->converter->techniqueId(2));
-        $this->assertSame(2, $this->converter->techniqueId('差し'));
-        $this->assertSame(2, $this->converter->techniqueId('差'));
+        $this->assertSame(2, $this->converter->techniqueNumber(2));
+        $this->assertSame(2, $this->converter->techniqueNumber('差し'));
+        $this->assertSame(2, $this->converter->techniqueNumber('差'));
         $this->assertNull($this->converter->techniqueName(-1));
         $this->assertNull($this->converter->techniqueName('競艇'));
         $this->assertNull($this->converter->techniqueName(null));
