@@ -11,7 +11,7 @@ use Illuminate\Support\Collection;
 /**
  * @author shimomo
  */
-class StadiumConverter implements ConverterInterface
+class StadiumConverter implements StadiumConverterInterface
 {
     /**
      * @param  \BVP\Converter\Converters\CoreConverterInterface  $converter
