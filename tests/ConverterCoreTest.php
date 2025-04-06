@@ -267,15 +267,15 @@ final class ConverterCoreTest extends TestCase
      */
     public function testPrefectureId(): void
     {
-        $this->assertSame(13, $this->converter->prefectureId(13));
-        $this->assertSame(13, $this->converter->prefectureId('東京都'));
-        $this->assertSame(13, $this->converter->prefectureId('東京'));
-        $this->assertSame(13, $this->converter->prefectureId('とうきょう'));
-        $this->assertSame(13, $this->converter->prefectureId('トウキョウ'));
-        $this->assertSame(13, $this->converter->prefectureId('tokyo'));
-        $this->assertNull($this->converter->prefectureId(-1));
-        $this->assertNull($this->converter->prefectureId('競艇'));
-        $this->assertNull($this->converter->prefectureId(null));
+        $this->assertSame(13, $this->converter->prefectureNumber(13));
+        $this->assertSame(13, $this->converter->prefectureNumber('東京都'));
+        $this->assertSame(13, $this->converter->prefectureNumber('東京'));
+        $this->assertSame(13, $this->converter->prefectureNumber('とうきょう'));
+        $this->assertSame(13, $this->converter->prefectureNumber('トウキョウ'));
+        $this->assertSame(13, $this->converter->prefectureNumber('tokyo'));
+        $this->assertNull($this->converter->prefectureNumber(-1));
+        $this->assertNull($this->converter->prefectureNumber('競艇'));
+        $this->assertNull($this->converter->prefectureNumber(null));
     }
 
     /**

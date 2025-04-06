@@ -254,15 +254,15 @@ final class ConverterTest extends TestCase
      */
     public function testPrefectureId(): void
     {
-        $this->assertSame(13, Converter::prefectureId(13));
-        $this->assertSame(13, Converter::prefectureId('東京都'));
-        $this->assertSame(13, Converter::prefectureId('東京'));
-        $this->assertSame(13, Converter::prefectureId('とうきょう'));
-        $this->assertSame(13, Converter::prefectureId('トウキョウ'));
-        $this->assertSame(13, Converter::prefectureId('tokyo'));
-        $this->assertNull(Converter::prefectureId(-1));
-        $this->assertNull(Converter::prefectureId('競艇'));
-        $this->assertNull(Converter::prefectureId(null));
+        $this->assertSame(13, Converter::prefectureNumber(13));
+        $this->assertSame(13, Converter::prefectureNumber('東京都'));
+        $this->assertSame(13, Converter::prefectureNumber('東京'));
+        $this->assertSame(13, Converter::prefectureNumber('とうきょう'));
+        $this->assertSame(13, Converter::prefectureNumber('トウキョウ'));
+        $this->assertSame(13, Converter::prefectureNumber('tokyo'));
+        $this->assertNull(Converter::prefectureNumber(-1));
+        $this->assertNull(Converter::prefectureNumber('競艇'));
+        $this->assertNull(Converter::prefectureNumber(null));
     }
 
     /**

@@ -23,7 +23,7 @@ class PrefectureConverter implements ConverterInterface
      * @param  string|int|null  $value
      * @return int|null
      */
-    public function prefectureId(string|int|null $value): ?int
+    public function prefectureNumber(string|int|null $value): ?int
     {
         return $this->resolvePrefecture($value)?->get('id');
     }
