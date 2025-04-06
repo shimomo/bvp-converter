@@ -11,7 +11,7 @@ use Illuminate\Support\Collection;
 /**
  * @author shimomo
  */
-class WeatherConverter implements ConverterInterface
+class WeatherConverter implements WeatherConverterInterface
 {
     use ConfigLoader;
 
