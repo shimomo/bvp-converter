@@ -23,7 +23,7 @@ class PrefectureConverter implements ConverterInterface
      * @param  string|int|null  $value
      * @return int|null
      */
-    public function prefectureNumber(string|int|null $value): ?int
+    public function convertToPrefectureNumber(string|int|null $value): ?int
     {
         return $this->resolvePrefecture($value)?->get('id');
     }
@@ -32,7 +32,7 @@ class PrefectureConverter implements ConverterInterface
      * @param  string|int|null  $value
      * @return string|null
      */
-    public function prefectureName(string|int|null $value): ?string
+    public function convertToPrefectureName(string|int|null $value): ?string
     {
         return $this->resolvePrefecture($value)?->get('name');
     }
@@ -41,7 +41,7 @@ class PrefectureConverter implements ConverterInterface
      * @param  string|int|null  $value
      * @return string|null
      */
-    public function prefectureShortName(string|int|null $value): ?string
+    public function convertToPrefectureShortName(string|int|null $value): ?string
     {
         return $this->resolvePrefecture($value)?->get('short_name');
     }
@@ -50,7 +50,7 @@ class PrefectureConverter implements ConverterInterface
      * @param  string|int|null  $value
      * @return string|null
      */
-    public function prefectureHiraganaName(string|int|null $value): ?string
+    public function convertToPrefectureHiraganaName(string|int|null $value): ?string
     {
         return $this->resolvePrefecture($value)?->get('hiragana_name');
     }
@@ -59,7 +59,7 @@ class PrefectureConverter implements ConverterInterface
      * @param  string|int|null  $value
      * @return string|null
      */
-    public function prefectureKatakanaName(string|int|null $value): ?string
+    public function convertToPrefectureKatakanaName(string|int|null $value): ?string
     {
         return $this->resolvePrefecture($value)?->get('katakana_name');
     }
@@ -68,7 +68,7 @@ class PrefectureConverter implements ConverterInterface
      * @param  string|int|null  $value
      * @return string|null
      */
-    public function prefectureEnglishName(string|int|null $value): ?string
+    public function convertToPrefectureEnglishName(string|int|null $value): ?string
     {
         return $this->resolvePrefecture($value)?->get('english_name');
     }

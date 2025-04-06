@@ -267,15 +267,15 @@ final class ConverterCoreTest extends TestCase
      */
     public function testPrefectureId(): void
     {
-        $this->assertSame(13, $this->converter->prefectureNumber(13));
-        $this->assertSame(13, $this->converter->prefectureNumber('東京都'));
-        $this->assertSame(13, $this->converter->prefectureNumber('東京'));
-        $this->assertSame(13, $this->converter->prefectureNumber('とうきょう'));
-        $this->assertSame(13, $this->converter->prefectureNumber('トウキョウ'));
-        $this->assertSame(13, $this->converter->prefectureNumber('tokyo'));
-        $this->assertNull($this->converter->prefectureNumber(-1));
-        $this->assertNull($this->converter->prefectureNumber('競艇'));
-        $this->assertNull($this->converter->prefectureNumber(null));
+        $this->assertSame(13, $this->converter->convertToPrefectureNumber(13));
+        $this->assertSame(13, $this->converter->convertToPrefectureNumber('東京都'));
+        $this->assertSame(13, $this->converter->convertToPrefectureNumber('東京'));
+        $this->assertSame(13, $this->converter->convertToPrefectureNumber('とうきょう'));
+        $this->assertSame(13, $this->converter->convertToPrefectureNumber('トウキョウ'));
+        $this->assertSame(13, $this->converter->convertToPrefectureNumber('tokyo'));
+        $this->assertNull($this->converter->convertToPrefectureNumber(-1));
+        $this->assertNull($this->converter->convertToPrefectureNumber('競艇'));
+        $this->assertNull($this->converter->convertToPrefectureNumber(null));
     }
 
     /**
@@ -283,15 +283,15 @@ final class ConverterCoreTest extends TestCase
      */
     public function testPrefectureName(): void
     {
-        $this->assertSame('東京都', $this->converter->prefectureName(13));
-        $this->assertSame('東京都', $this->converter->prefectureName('東京都'));
-        $this->assertSame('東京都', $this->converter->prefectureName('東京'));
-        $this->assertSame('東京都', $this->converter->prefectureName('とうきょう'));
-        $this->assertSame('東京都', $this->converter->prefectureName('トウキョウ'));
-        $this->assertSame('東京都', $this->converter->prefectureName('tokyo'));
-        $this->assertNull($this->converter->prefectureName(-1));
-        $this->assertNull($this->converter->prefectureName('競艇'));
-        $this->assertNull($this->converter->prefectureName(null));
+        $this->assertSame('東京都', $this->converter->convertToPrefectureName(13));
+        $this->assertSame('東京都', $this->converter->convertToPrefectureName('東京都'));
+        $this->assertSame('東京都', $this->converter->convertToPrefectureName('東京'));
+        $this->assertSame('東京都', $this->converter->convertToPrefectureName('とうきょう'));
+        $this->assertSame('東京都', $this->converter->convertToPrefectureName('トウキョウ'));
+        $this->assertSame('東京都', $this->converter->convertToPrefectureName('tokyo'));
+        $this->assertNull($this->converter->convertToPrefectureName(-1));
+        $this->assertNull($this->converter->convertToPrefectureName('競艇'));
+        $this->assertNull($this->converter->convertToPrefectureName(null));
     }
 
     /**
@@ -299,15 +299,15 @@ final class ConverterCoreTest extends TestCase
      */
     public function testPrefectureShortName(): void
     {
-        $this->assertSame('東京', $this->converter->prefectureShortName(13));
-        $this->assertSame('東京', $this->converter->prefectureShortName('東京都'));
-        $this->assertSame('東京', $this->converter->prefectureShortName('東京'));
-        $this->assertSame('東京', $this->converter->prefectureShortName('とうきょう'));
-        $this->assertSame('東京', $this->converter->prefectureShortName('トウキョウ'));
-        $this->assertSame('東京', $this->converter->prefectureShortName('tokyo'));
-        $this->assertNull($this->converter->prefectureShortName(-1));
-        $this->assertNull($this->converter->prefectureShortName('競艇'));
-        $this->assertNull($this->converter->prefectureShortName(null));
+        $this->assertSame('東京', $this->converter->convertToPrefectureShortName(13));
+        $this->assertSame('東京', $this->converter->convertToPrefectureShortName('東京都'));
+        $this->assertSame('東京', $this->converter->convertToPrefectureShortName('東京'));
+        $this->assertSame('東京', $this->converter->convertToPrefectureShortName('とうきょう'));
+        $this->assertSame('東京', $this->converter->convertToPrefectureShortName('トウキョウ'));
+        $this->assertSame('東京', $this->converter->convertToPrefectureShortName('tokyo'));
+        $this->assertNull($this->converter->convertToPrefectureShortName(-1));
+        $this->assertNull($this->converter->convertToPrefectureShortName('競艇'));
+        $this->assertNull($this->converter->convertToPrefectureShortName(null));
     }
 
     /**
@@ -315,15 +315,15 @@ final class ConverterCoreTest extends TestCase
      */
     public function testPrefectureHiraganaName(): void
     {
-        $this->assertSame('とうきょうと', $this->converter->prefectureHiraganaName(13));
-        $this->assertSame('とうきょうと', $this->converter->prefectureHiraganaName('東京都'));
-        $this->assertSame('とうきょうと', $this->converter->prefectureHiraganaName('東京'));
-        $this->assertSame('とうきょうと', $this->converter->prefectureHiraganaName('とうきょう'));
-        $this->assertSame('とうきょうと', $this->converter->prefectureHiraganaName('トウキョウ'));
-        $this->assertSame('とうきょうと', $this->converter->prefectureHiraganaName('tokyo'));
-        $this->assertNull($this->converter->prefectureHiraganaName(-1));
-        $this->assertNull($this->converter->prefectureHiraganaName('競艇'));
-        $this->assertNull($this->converter->prefectureHiraganaName(null));
+        $this->assertSame('とうきょうと', $this->converter->convertToPrefectureHiraganaName(13));
+        $this->assertSame('とうきょうと', $this->converter->convertToPrefectureHiraganaName('東京都'));
+        $this->assertSame('とうきょうと', $this->converter->convertToPrefectureHiraganaName('東京'));
+        $this->assertSame('とうきょうと', $this->converter->convertToPrefectureHiraganaName('とうきょう'));
+        $this->assertSame('とうきょうと', $this->converter->convertToPrefectureHiraganaName('トウキョウ'));
+        $this->assertSame('とうきょうと', $this->converter->convertToPrefectureHiraganaName('tokyo'));
+        $this->assertNull($this->converter->convertToPrefectureHiraganaName(-1));
+        $this->assertNull($this->converter->convertToPrefectureHiraganaName('競艇'));
+        $this->assertNull($this->converter->convertToPrefectureHiraganaName(null));
     }
 
     /**
@@ -331,14 +331,14 @@ final class ConverterCoreTest extends TestCase
      */
     public function testPrefectureKatakanaName(): void
     {
-        $this->assertSame('トウキョウト', $this->converter->prefectureKatakanaName(13));
-        $this->assertSame('トウキョウト', $this->converter->prefectureKatakanaName('東京都'));
-        $this->assertSame('トウキョウト', $this->converter->prefectureKatakanaName('東京'));
-        $this->assertSame('トウキョウト', $this->converter->prefectureKatakanaName('とうきょう'));
-        $this->assertSame('トウキョウト', $this->converter->prefectureKatakanaName('トウキョウ'));
-        $this->assertNull($this->converter->prefectureKatakanaName(-1));
-        $this->assertNull($this->converter->prefectureKatakanaName('競艇'));
-        $this->assertNull($this->converter->prefectureKatakanaName(null));
+        $this->assertSame('トウキョウト', $this->converter->convertToPrefectureKatakanaName(13));
+        $this->assertSame('トウキョウト', $this->converter->convertToPrefectureKatakanaName('東京都'));
+        $this->assertSame('トウキョウト', $this->converter->convertToPrefectureKatakanaName('東京'));
+        $this->assertSame('トウキョウト', $this->converter->convertToPrefectureKatakanaName('とうきょう'));
+        $this->assertSame('トウキョウト', $this->converter->convertToPrefectureKatakanaName('トウキョウ'));
+        $this->assertNull($this->converter->convertToPrefectureKatakanaName(-1));
+        $this->assertNull($this->converter->convertToPrefectureKatakanaName('競艇'));
+        $this->assertNull($this->converter->convertToPrefectureKatakanaName(null));
     }
 
     /**
@@ -346,14 +346,14 @@ final class ConverterCoreTest extends TestCase
      */
     public function testPrefectureEnglishName(): void
     {
-        $this->assertSame('tokyo', $this->converter->prefectureEnglishName(13));
-        $this->assertSame('tokyo', $this->converter->prefectureEnglishName('東京都'));
-        $this->assertSame('tokyo', $this->converter->prefectureEnglishName('東京'));
-        $this->assertSame('tokyo', $this->converter->prefectureEnglishName('とうきょう'));
-        $this->assertSame('tokyo', $this->converter->prefectureEnglishName('トウキョウ'));
-        $this->assertNull($this->converter->prefectureEnglishName(-1));
-        $this->assertNull($this->converter->prefectureEnglishName('競艇'));
-        $this->assertNull($this->converter->prefectureEnglishName(null));
+        $this->assertSame('tokyo', $this->converter->convertToPrefectureEnglishName(13));
+        $this->assertSame('tokyo', $this->converter->convertToPrefectureEnglishName('東京都'));
+        $this->assertSame('tokyo', $this->converter->convertToPrefectureEnglishName('東京'));
+        $this->assertSame('tokyo', $this->converter->convertToPrefectureEnglishName('とうきょう'));
+        $this->assertSame('tokyo', $this->converter->convertToPrefectureEnglishName('トウキョウ'));
+        $this->assertNull($this->converter->convertToPrefectureEnglishName(-1));
+        $this->assertNull($this->converter->convertToPrefectureEnglishName('競艇'));
+        $this->assertNull($this->converter->convertToPrefectureEnglishName(null));
     }
 
     /**
