@@ -93,14 +93,14 @@ final class StadiumConverterTest extends TestCase
      */
     public function testStadiumKatakanaName(): void
     {
-        $this->assertSame('ボートレースオオムラ', $this->converter->stadiumKatakanaName(24));
-        $this->assertSame('ボートレースオオムラ', $this->converter->stadiumKatakanaName('ボートレース大村'));
-        $this->assertSame('ボートレースオオムラ', $this->converter->stadiumKatakanaName('大村'));
-        $this->assertSame('ボートレースオオムラ', $this->converter->stadiumKatakanaName('おおむら'));
-        $this->assertSame('ボートレースオオムラ', $this->converter->stadiumKatakanaName('オオムラ'));
-        $this->assertSame('ボートレースオオムラ', $this->converter->stadiumKatakanaName('omura'));
-        $this->assertNull($this->converter->stadiumKatakanaName('競艇'));
-        $this->assertNull($this->converter->stadiumKatakanaName(null));
+        $this->assertSame('ボートレースオオムラ', $this->converter->convertToStadiumKatakanaName(24));
+        $this->assertSame('ボートレースオオムラ', $this->converter->convertToStadiumKatakanaName('ボートレース大村'));
+        $this->assertSame('ボートレースオオムラ', $this->converter->convertToStadiumKatakanaName('大村'));
+        $this->assertSame('ボートレースオオムラ', $this->converter->convertToStadiumKatakanaName('おおむら'));
+        $this->assertSame('ボートレースオオムラ', $this->converter->convertToStadiumKatakanaName('オオムラ'));
+        $this->assertSame('ボートレースオオムラ', $this->converter->convertToStadiumKatakanaName('omura'));
+        $this->assertNull($this->converter->convertToStadiumKatakanaName('競艇'));
+        $this->assertNull($this->converter->convertToStadiumKatakanaName(null));
     }
 
     /**

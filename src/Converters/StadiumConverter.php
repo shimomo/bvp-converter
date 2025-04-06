@@ -59,7 +59,7 @@ class StadiumConverter implements ConverterInterface
      * @param  string|int|null  $value
      * @return string|null
      */
-    public function stadiumKatakanaName(string|int|null $value): ?string
+    public function convertToStadiumKatakanaName(string|int|null $value): ?string
     {
         return $this->resolveStadium($value)?->get('katakana_name');
     }
