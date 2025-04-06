@@ -108,13 +108,13 @@ final class StadiumConverterTest extends TestCase
      */
     public function testStadiumEnglishName(): void
     {
-        $this->assertSame('omura', $this->converter->stadiumEnglishName(24));
-        $this->assertSame('omura', $this->converter->stadiumEnglishName('ボートレース大村'));
-        $this->assertSame('omura', $this->converter->stadiumEnglishName('大村'));
-        $this->assertSame('omura', $this->converter->stadiumEnglishName('おおむら'));
-        $this->assertSame('omura', $this->converter->stadiumEnglishName('オオムラ'));
-        $this->assertSame('omura', $this->converter->stadiumEnglishName('omura'));
-        $this->assertNull($this->converter->stadiumEnglishName('競艇'));
-        $this->assertNull($this->converter->stadiumEnglishName(null));
+        $this->assertSame('omura', $this->converter->convertToStadiumEnglishName(24));
+        $this->assertSame('omura', $this->converter->convertToStadiumEnglishName('ボートレース大村'));
+        $this->assertSame('omura', $this->converter->convertToStadiumEnglishName('大村'));
+        $this->assertSame('omura', $this->converter->convertToStadiumEnglishName('おおむら'));
+        $this->assertSame('omura', $this->converter->convertToStadiumEnglishName('オオムラ'));
+        $this->assertSame('omura', $this->converter->convertToStadiumEnglishName('omura'));
+        $this->assertNull($this->converter->convertToStadiumEnglishName('競艇'));
+        $this->assertNull($this->converter->convertToStadiumEnglishName(null));
     }
 }
