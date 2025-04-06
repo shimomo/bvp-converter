@@ -33,14 +33,14 @@ final class StadiumConverterTest extends TestCase
      */
     public function testStadiumId(): void
     {
-        $this->assertSame(24, $this->converter->stadiumId(24));
-        $this->assertSame(24, $this->converter->stadiumId('ボートレース大村'));
-        $this->assertSame(24, $this->converter->stadiumId('大村'));
-        $this->assertSame(24, $this->converter->stadiumId('おおむら'));
-        $this->assertSame(24, $this->converter->stadiumId('オオムラ'));
-        $this->assertSame(24, $this->converter->stadiumId('omura'));
-        $this->assertNull($this->converter->stadiumId('競艇'));
-        $this->assertNull($this->converter->stadiumId(null));
+        $this->assertSame(24, $this->converter->stadiumNumber(24));
+        $this->assertSame(24, $this->converter->stadiumNumber('ボートレース大村'));
+        $this->assertSame(24, $this->converter->stadiumNumber('大村'));
+        $this->assertSame(24, $this->converter->stadiumNumber('おおむら'));
+        $this->assertSame(24, $this->converter->stadiumNumber('オオムラ'));
+        $this->assertSame(24, $this->converter->stadiumNumber('omura'));
+        $this->assertNull($this->converter->stadiumNumber('競艇'));
+        $this->assertNull($this->converter->stadiumNumber(null));
     }
 
     /**

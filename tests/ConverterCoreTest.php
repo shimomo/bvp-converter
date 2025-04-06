@@ -361,12 +361,12 @@ final class ConverterCoreTest extends TestCase
      */
     public function testStadiumId(): void
     {
-        $this->assertSame(12, $this->converter->stadiumId(12));
-        $this->assertSame(12, $this->converter->stadiumId('ボートレース住之江'));
-        $this->assertSame(12, $this->converter->stadiumId('住之江'));
-        $this->assertNull($this->converter->stadiumId(-1));
-        $this->assertNull($this->converter->stadiumId('競艇'));
-        $this->assertNull($this->converter->stadiumId(null));
+        $this->assertSame(12, $this->converter->stadiumNumber(12));
+        $this->assertSame(12, $this->converter->stadiumNumber('ボートレース住之江'));
+        $this->assertSame(12, $this->converter->stadiumNumber('住之江'));
+        $this->assertNull($this->converter->stadiumNumber(-1));
+        $this->assertNull($this->converter->stadiumNumber('競艇'));
+        $this->assertNull($this->converter->stadiumNumber(null));
     }
 
     /**

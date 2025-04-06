@@ -23,7 +23,7 @@ class StadiumConverter implements ConverterInterface
      * @param  string|int|null  $value
      * @return int|null
      */
-    public function stadiumId(string|int|null $value): ?int
+    public function stadiumNumber(string|int|null $value): ?int
     {
         return $this->resolveStadium($value)?->get('id');
     }
