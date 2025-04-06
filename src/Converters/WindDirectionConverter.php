@@ -11,7 +11,7 @@ use Illuminate\Support\Collection;
 /**
  * @author shimomo
  */
-class WindDirectionConverter implements ConverterInterface
+class WindDirectionConverter implements WindDirectionConverterInterface
 {
     use ConfigLoader;
 
