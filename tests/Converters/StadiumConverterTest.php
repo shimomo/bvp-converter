@@ -78,14 +78,14 @@ final class StadiumConverterTest extends TestCase
      */
     public function testStadiumHiraganaName(): void
     {
-        $this->assertSame('ぼーとれーすおおむら', $this->converter->stadiumHiraganaName(24));
-        $this->assertSame('ぼーとれーすおおむら', $this->converter->stadiumHiraganaName('ボートレース大村'));
-        $this->assertSame('ぼーとれーすおおむら', $this->converter->stadiumHiraganaName('大村'));
-        $this->assertSame('ぼーとれーすおおむら', $this->converter->stadiumHiraganaName('おおむら'));
-        $this->assertSame('ぼーとれーすおおむら', $this->converter->stadiumHiraganaName('オオムラ'));
-        $this->assertSame('ぼーとれーすおおむら', $this->converter->stadiumHiraganaName('omura'));
-        $this->assertNull($this->converter->stadiumHiraganaName('競艇'));
-        $this->assertNull($this->converter->stadiumHiraganaName(null));
+        $this->assertSame('ぼーとれーすおおむら', $this->converter->convertToStadiumHiraganaName(24));
+        $this->assertSame('ぼーとれーすおおむら', $this->converter->convertToStadiumHiraganaName('ボートレース大村'));
+        $this->assertSame('ぼーとれーすおおむら', $this->converter->convertToStadiumHiraganaName('大村'));
+        $this->assertSame('ぼーとれーすおおむら', $this->converter->convertToStadiumHiraganaName('おおむら'));
+        $this->assertSame('ぼーとれーすおおむら', $this->converter->convertToStadiumHiraganaName('オオムラ'));
+        $this->assertSame('ぼーとれーすおおむら', $this->converter->convertToStadiumHiraganaName('omura'));
+        $this->assertNull($this->converter->convertToStadiumHiraganaName('競艇'));
+        $this->assertNull($this->converter->convertToStadiumHiraganaName(null));
     }
 
     /**
