@@ -348,12 +348,12 @@ final class ConverterTest extends TestCase
      */
     public function testStadiumId(): void
     {
-        $this->assertSame(12, Converter::stadiumNumber(12));
-        $this->assertSame(12, Converter::stadiumNumber('ボートレース住之江'));
-        $this->assertSame(12, Converter::stadiumNumber('住之江'));
-        $this->assertNull(Converter::stadiumNumber(-1));
-        $this->assertNull(Converter::stadiumNumber('競艇'));
-        $this->assertNull(Converter::stadiumNumber(null));
+        $this->assertSame(12, Converter::convertToStadiumNumber(12));
+        $this->assertSame(12, Converter::convertToStadiumNumber('ボートレース住之江'));
+        $this->assertSame(12, Converter::convertToStadiumNumber('住之江'));
+        $this->assertNull(Converter::convertToStadiumNumber(-1));
+        $this->assertNull(Converter::convertToStadiumNumber('競艇'));
+        $this->assertNull(Converter::convertToStadiumNumber(null));
     }
 
     /**
@@ -361,12 +361,12 @@ final class ConverterTest extends TestCase
      */
     public function testStadiumName(): void
     {
-        $this->assertSame('ボートレース住之江', Converter::stadiumName(12));
-        $this->assertSame('ボートレース住之江', Converter::stadiumName('ボートレース住之江'));
-        $this->assertSame('ボートレース住之江', Converter::stadiumName('住之江'));
-        $this->assertNull(Converter::stadiumName(-1));
-        $this->assertNull(Converter::stadiumName('競艇'));
-        $this->assertNull(Converter::stadiumName(null));
+        $this->assertSame('ボートレース住之江', Converter::convertToStadiumName(12));
+        $this->assertSame('ボートレース住之江', Converter::convertToStadiumName('ボートレース住之江'));
+        $this->assertSame('ボートレース住之江', Converter::convertToStadiumName('住之江'));
+        $this->assertNull(Converter::convertToStadiumName(-1));
+        $this->assertNull(Converter::convertToStadiumName('競艇'));
+        $this->assertNull(Converter::convertToStadiumName(null));
     }
 
     /**
@@ -374,11 +374,11 @@ final class ConverterTest extends TestCase
      */
     public function testStadiumShortName(): void
     {
-        $this->assertSame('住之江', Converter::stadiumShortName(12));
-        $this->assertSame('住之江', Converter::stadiumShortName('ボートレース住之江'));
-        $this->assertSame('住之江', Converter::stadiumShortName('住之江'));
-        $this->assertNull(Converter::stadiumShortName(-1));
-        $this->assertNull(Converter::stadiumShortName('競艇'));
-        $this->assertNull(Converter::stadiumShortName(null));
+        $this->assertSame('住之江', Converter::convertToStadiumShortName(12));
+        $this->assertSame('住之江', Converter::convertToStadiumShortName('ボートレース住之江'));
+        $this->assertSame('住之江', Converter::convertToStadiumShortName('住之江'));
+        $this->assertNull(Converter::convertToStadiumShortName(-1));
+        $this->assertNull(Converter::convertToStadiumShortName('競艇'));
+        $this->assertNull(Converter::convertToStadiumShortName(null));
     }
 }

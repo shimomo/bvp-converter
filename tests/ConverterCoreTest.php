@@ -361,12 +361,12 @@ final class ConverterCoreTest extends TestCase
      */
     public function testStadiumId(): void
     {
-        $this->assertSame(12, $this->converter->stadiumNumber(12));
-        $this->assertSame(12, $this->converter->stadiumNumber('ボートレース住之江'));
-        $this->assertSame(12, $this->converter->stadiumNumber('住之江'));
-        $this->assertNull($this->converter->stadiumNumber(-1));
-        $this->assertNull($this->converter->stadiumNumber('競艇'));
-        $this->assertNull($this->converter->stadiumNumber(null));
+        $this->assertSame(12, $this->converter->convertToStadiumNumber(12));
+        $this->assertSame(12, $this->converter->convertToStadiumNumber('ボートレース住之江'));
+        $this->assertSame(12, $this->converter->convertToStadiumNumber('住之江'));
+        $this->assertNull($this->converter->convertToStadiumNumber(-1));
+        $this->assertNull($this->converter->convertToStadiumNumber('競艇'));
+        $this->assertNull($this->converter->convertToStadiumNumber(null));
     }
 
     /**
@@ -374,12 +374,12 @@ final class ConverterCoreTest extends TestCase
      */
     public function testStadiumName(): void
     {
-        $this->assertSame('ボートレース住之江', $this->converter->stadiumName(12));
-        $this->assertSame('ボートレース住之江', $this->converter->stadiumName('ボートレース住之江'));
-        $this->assertSame('ボートレース住之江', $this->converter->stadiumName('住之江'));
-        $this->assertNull($this->converter->stadiumName(-1));
-        $this->assertNull($this->converter->stadiumName('競艇'));
-        $this->assertNull($this->converter->stadiumName(null));
+        $this->assertSame('ボートレース住之江', $this->converter->convertToStadiumName(12));
+        $this->assertSame('ボートレース住之江', $this->converter->convertToStadiumName('ボートレース住之江'));
+        $this->assertSame('ボートレース住之江', $this->converter->convertToStadiumName('住之江'));
+        $this->assertNull($this->converter->convertToStadiumName(-1));
+        $this->assertNull($this->converter->convertToStadiumName('競艇'));
+        $this->assertNull($this->converter->convertToStadiumName(null));
     }
 
     /**
@@ -387,11 +387,11 @@ final class ConverterCoreTest extends TestCase
      */
     public function testStadiumShortName(): void
     {
-        $this->assertSame('住之江', $this->converter->stadiumShortName(12));
-        $this->assertSame('住之江', $this->converter->stadiumShortName('ボートレース住之江'));
-        $this->assertSame('住之江', $this->converter->stadiumShortName('住之江'));
-        $this->assertNull($this->converter->stadiumShortName(-1));
-        $this->assertNull($this->converter->stadiumShortName('競艇'));
-        $this->assertNull($this->converter->stadiumShortName(null));
+        $this->assertSame('住之江', $this->converter->convertToStadiumShortName(12));
+        $this->assertSame('住之江', $this->converter->convertToStadiumShortName('ボートレース住之江'));
+        $this->assertSame('住之江', $this->converter->convertToStadiumShortName('住之江'));
+        $this->assertNull($this->converter->convertToStadiumShortName(-1));
+        $this->assertNull($this->converter->convertToStadiumShortName('競艇'));
+        $this->assertNull($this->converter->convertToStadiumShortName(null));
     }
 }

@@ -23,7 +23,7 @@ class StadiumConverter implements ConverterInterface
      * @param  string|int|null  $value
      * @return int|null
      */
-    public function stadiumNumber(string|int|null $value): ?int
+    public function convertToStadiumNumber(string|int|null $value): ?int
     {
         return $this->resolveStadium($value)?->get('id');
     }
@@ -32,7 +32,7 @@ class StadiumConverter implements ConverterInterface
      * @param  string|int|null  $value
      * @return string|null
      */
-    public function stadiumName(string|int|null $value): ?string
+    public function convertToStadiumName(string|int|null $value): ?string
     {
         return $this->resolveStadium($value)?->get('name');
     }
@@ -41,7 +41,7 @@ class StadiumConverter implements ConverterInterface
      * @param  string|int|null  $value
      * @return string|null
      */
-    public function stadiumShortName(string|int|null $value): ?string
+    public function convertToStadiumShortName(string|int|null $value): ?string
     {
         return $this->resolveStadium($value)?->get('short_name');
     }
