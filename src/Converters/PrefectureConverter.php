@@ -11,7 +11,7 @@ use Illuminate\Support\Collection;
 /**
  * @author shimomo
  */
-class PrefectureConverter implements ConverterInterface
+class PrefectureConverter implements PrefectureConverterInterface
 {
     /**
      * @param  \BVP\Converter\Converters\CoreConverterInterface  $converter
