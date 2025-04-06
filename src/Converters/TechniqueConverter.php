@@ -11,7 +11,7 @@ use Illuminate\Support\Collection;
 /**
  * @author shimomo
  */
-class TechniqueConverter implements ConverterInterface
+class TechniqueConverter implements TechniqueConverterInterface
 {
     use ConfigLoader;
 
