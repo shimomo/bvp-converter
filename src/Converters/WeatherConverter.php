@@ -6,7 +6,7 @@ namespace BVP\Converter\Converters;
 
 use BVP\Converter\Traits\ConfigLoader;
 use BVP\Trimmer\Trimmer;
-use Illuminate\Support\Collection;
+use Shimomo\Helper\Arr;
 
 /**
  * @author shimomo
@@ -27,7 +27,7 @@ class WeatherConverter implements WeatherConverterInterface
      */
     public function convertToWeatherNumber(string|int|null $value): ?int
     {
-        return $this->resolveWeather($value)?->get('number');
+        return $this->resolveWeather($value)['number'] ?? null;
     }
 
     /**
@@ -36,7 +36,7 @@ class WeatherConverter implements WeatherConverterInterface
      */
     public function convertToWeatherName(string|int|null $value): ?string
     {
-        return $this->resolveWeather($value)?->get('name');
+        return $this->resolveWeather($value)['name'] ?? null;
     }
 
     /**
@@ -45,33 +45,36 @@ class WeatherConverter implements WeatherConverterInterface
      */
     public function convertToWeatherShortName(string|int|null $value): ?string
     {
-        return $this->resolveWeather($value)?->get('short_name');
+        return $this->resolveWeather($value)['short_name'] ?? null;
     }
 
     /**
      * @param  string|int|null  $value
-     * @return \Illuminate\Support\Collection|null
+     * @return array|null
      */
-    private function resolveWeather(string|int|null $value): ?Collection
+    private function resolveWeather(string|int|null $value): ?array
     {
         if (is_null($value)) {
             return null;
         }
 
-        $value = $this->converter->convertToString($value);
+        if (is_int($value)) {
+            $value = $this->converter->convertToInt($value);
+        } else {
+            $value = $this->converter->convertToString($value);
+        }
+
         $value = Trimmer::trim($value);
         return $this->searchWeather($value);
     }
 
     /**
-     * @param  string  $value
-     * @return \Illuminate\Support\Collection|null
+     * @param  string|int  $value
+     * @return array|null
      */
-    private function searchWeather(string $value): ?Collection
+    private function searchWeather(string|int $value): ?array
     {
         $config = $this->loadConfig('weather');
-        return $config->firstWhere('number', $value)
-            ?? $config->firstWhere('name', $value)
-            ?? $config->firstWhere('short_name', $value);
+        return Arr::firstWhereKeys($config, ['number', 'name', 'short_name'], $value);
     }
 }

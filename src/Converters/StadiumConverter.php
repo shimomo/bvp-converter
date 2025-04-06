@@ -6,7 +6,6 @@ namespace BVP\Converter\Converters;
 
 use BVP\Stadium\Stadium;
 use BVP\Trimmer\Trimmer;
-use Illuminate\Support\Collection;
 
 /**
  * @author shimomo
@@ -25,7 +24,7 @@ class StadiumConverter implements StadiumConverterInterface
      */
     public function convertToStadiumNumber(string|int|null $value): ?int
     {
-        return $this->resolveStadium($value)?->get('id');
+        return $this->resolveStadium($value)['id'] ?? null;
     }
 
     /**
@@ -34,7 +33,7 @@ class StadiumConverter implements StadiumConverterInterface
      */
     public function convertToStadiumName(string|int|null $value): ?string
     {
-        return $this->resolveStadium($value)?->get('name');
+        return $this->resolveStadium($value)['name'] ?? null;
     }
 
     /**
@@ -43,7 +42,7 @@ class StadiumConverter implements StadiumConverterInterface
      */
     public function convertToStadiumShortName(string|int|null $value): ?string
     {
-        return $this->resolveStadium($value)?->get('short_name');
+        return $this->resolveStadium($value)['short_name'] ?? null;
     }
 
     /**
@@ -52,7 +51,7 @@ class StadiumConverter implements StadiumConverterInterface
      */
     public function convertToStadiumHiraganaName(string|int|null $value): ?string
     {
-        return $this->resolveStadium($value)?->get('hiragana_name');
+        return $this->resolveStadium($value)['hiragana_name'] ?? null;
     }
 
     /**
@@ -61,7 +60,7 @@ class StadiumConverter implements StadiumConverterInterface
      */
     public function convertToStadiumKatakanaName(string|int|null $value): ?string
     {
-        return $this->resolveStadium($value)?->get('katakana_name');
+        return $this->resolveStadium($value)['katakana_name'] ?? null;
     }
 
     /**
@@ -70,7 +69,7 @@ class StadiumConverter implements StadiumConverterInterface
      */
     public function convertToStadiumEnglishName(string|int|null $value): ?string
     {
-        return $this->resolveStadium($value)?->get('english_name');
+        return $this->resolveStadium($value)['english_name'] ?? null;
     }
 
     /**
@@ -79,36 +78,41 @@ class StadiumConverter implements StadiumConverterInterface
      */
     public function convertToStadiumUrl(string|int|null $value): ?string
     {
-        return $this->resolveStadium($value)?->get('url');
+        return $this->resolveStadium($value)['url'] ?? null;
     }
 
     /**
      * @param  string|int|null  $value
-     * @return \Illuminate\Support\Collection|null
+     * @return array|null
      */
-    private function resolveStadium(string|int|null $value): ?Collection
+    private function resolveStadium(string|int|null $value): ?array
     {
         if (is_null($value)) {
             return null;
         }
 
-        $value = $this->converter->convertToString($value);
+        if (is_int($value)) {
+            $value = $this->converter->convertToInt($value);
+        } else {
+            $value = $this->converter->convertToString($value);
+        }
+
         $value = Trimmer::trim($value);
         return $this->searchStadium($value);
     }
 
     /**
-     * @param  string  $value
-     * @return \Illuminate\Support\Collection|null
+     * @param  string|int  $value
+     * @return array|null
      */
-    private function searchStadium(string $value): ?Collection
+    private function searchStadium(string|int $value): ?array
     {
-        return Stadium::byId($value)
+        return (Stadium::byId($value)
             ?? Stadium::byName($value)
             ?? Stadium::byShortName($value)
             ?? Stadium::byHiraganaName($value)
             ?? Stadium::byKatakanaName($value)
             ?? Stadium::byEnglishName($value)
-            ?? Stadium::byUrl($value);
+            ?? Stadium::byUrl($value))?->toArray();
     }
 }

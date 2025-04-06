@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace BVP\Converter\Traits;
 
-use Illuminate\Support\Collection;
 use InvalidArgumentException;
 
 /**
@@ -19,11 +18,11 @@ trait ConfigLoader
 
     /**
      * @param  string  $key
-     * @return \Illuminate\Support\Collection
+     * @return array
      *
      * @throws \InvalidArgumentException
      */
-    private function loadConfig(string $key): Collection
+    private function loadConfig(string $key): array
     {
         if (isset($this->config[$key])) {
             return $this->config[$key];
@@ -31,26 +30,11 @@ trait ConfigLoader
 
         $fileName = __DIR__ . '/../../config/' . $key . '.php';
         if (file_exists($fileName)) {
-            $value = require $fileName;
-            $value = $this->collectRecursive($value);
-            return $this->config[$key] = $value;
+            return $this->config[$key] = require $fileName;
         }
 
         throw new InvalidArgumentException(
             'Config file \'' . $fileName . '\' does not exist.'
-        );
-    }
-
-    /**
-     * @param  object|array  $values
-     * @return \Illuminate\Support\Collection
-     */
-    private function collectRecursive(object|array $values): Collection
-    {
-        return collect($values)->map(
-            fn($value) => is_array($value) || is_object($value)
-                ? $this->collectRecursive($value)
-                : $value
         );
     }
 }

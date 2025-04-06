@@ -6,7 +6,7 @@ namespace BVP\Converter\Converters;
 
 use BVP\Converter\Traits\ConfigLoader;
 use BVP\Trimmer\Trimmer;
-use Illuminate\Support\Collection;
+use Shimomo\Helper\Arr;
 
 /**
  * @author shimomo
@@ -27,7 +27,7 @@ class ClassConverter implements ClassConverterInterface
      */
     public function convertToClassNumber(string|int|null $value): ?int
     {
-        return $this->resolveClass($value)?->get('number');
+        return $this->resolveClass($value)['number'] ?? null;
     }
 
     /**
@@ -36,7 +36,7 @@ class ClassConverter implements ClassConverterInterface
      */
     public function convertToClassName(string|int|null $value): ?string
     {
-        return $this->resolveClass($value)?->get('name');
+        return $this->resolveClass($value)['name'] ?? null;
     }
 
     /**
@@ -45,33 +45,36 @@ class ClassConverter implements ClassConverterInterface
      */
     public function convertToClassShortName(string|int|null $value): ?string
     {
-        return $this->resolveClass($value)?->get('short_name');
+        return $this->resolveClass($value)['short_name'] ?? null;
     }
 
     /**
      * @param  string|int|null  $value
-     * @return \Illuminate\Support\Collection|null
+     * @return array|null
      */
-    private function resolveClass(string|int|null $value): ?Collection
+    private function resolveClass(string|int|null $value): ?array
     {
         if (is_null($value)) {
             return null;
         }
 
-        $value = $this->converter->convertToString($value);
+        if (is_int($value)) {
+            $value = $this->converter->convertToInt($value);
+        } else {
+            $value = $this->converter->convertToString($value);
+        }
+
         $value = Trimmer::trim($value);
         return $this->searchClass($value);
     }
 
     /**
-     * @param  string  $value
-     * @return \Illuminate\Support\Collection|null
+     * @param  string|int  $value
+     * @return array|null
      */
-    private function searchClass(string $value): ?Collection
+    private function searchClass(string|int $value): ?array
     {
         $config = $this->loadConfig('class');
-        return $config->firstWhere('number', $value)
-            ?? $config->firstWhere('name', $value)
-            ?? $config->firstWhere('short_name', $value);
+        return Arr::firstWhereKeys($config, ['number', 'name', 'short_name'], $value);
     }
 }
