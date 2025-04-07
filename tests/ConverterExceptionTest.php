@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace BVP\Converter\Tests;
 
-use BadMethodCallException;
 use InvalidArgumentException;
 use BVP\Converter\Converter;
 use PHPUnit\Framework\TestCase;
@@ -47,7 +46,7 @@ final class ConverterExceptionTest extends TestCase
      */
     public function testInvalidUndefinedMethod(): void
     {
-        $this->expectException(BadMethodCallException::class);
+        $this->expectException(\BadMethodCallException::class);
         $this->expectExceptionMessage(
             'Call to undefined method BVP\Converter\Converters\CoreConverter::invalid().'
         );

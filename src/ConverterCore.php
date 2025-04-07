@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace BVP\Converter;
 
-use BadMethodCallException;
 use InvalidArgumentException;
 use BVP\Converter\Converters\ClassConverter;
 use BVP\Converter\Converters\ConverterInterface;
@@ -77,7 +76,7 @@ class ConverterCore implements ConverterCoreInterface
 
         $converterInstance = $this->getConverterInstance($specificConverterClass, $coreConverterClass);
         if (!method_exists($converterInstance, $name)) {
-            throw new BadMethodCallException(
+            throw new \BadMethodCallException(
                 'Call to undefined method ' . $converterInstance::class . '::' . $name . '().'
             );
         }
