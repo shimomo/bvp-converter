@@ -18,7 +18,7 @@ class StadiumConverter extends BaseConverter implements StadiumConverterInterfac
      */
     public function convertToStadiumNumber(string|int|null $value): ?int
     {
-        return $this->search($value)['id'] ?? null;
+        return $this->search($value)['number'] ?? null;
     }
 
     /**
@@ -89,12 +89,12 @@ class StadiumConverter extends BaseConverter implements StadiumConverterInterfac
             return null;
         }
 
-        return (Stadium::byId($value)
+        return Stadium::byNumber($value)
             ?? Stadium::byName($value)
             ?? Stadium::byShortName($value)
             ?? Stadium::byHiraganaName($value)
             ?? Stadium::byKatakanaName($value)
             ?? Stadium::byEnglishName($value)
-            ?? Stadium::byUrl($value))?->toArray();
+            ?? Stadium::byUrl($value);
     }
 }
