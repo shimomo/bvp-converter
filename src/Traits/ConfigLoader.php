@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace BVP\Converter\Traits;
 
-use InvalidArgumentException;
-
 /**
  * @author shimomo
  */
@@ -33,7 +31,7 @@ trait ConfigLoader
             return $this->config[$key] = require $fileName;
         }
 
-        throw new InvalidArgumentException(
+        throw new \InvalidArgumentException(
             'Config file \'' . $fileName . '\' does not exist.'
         );
     }
