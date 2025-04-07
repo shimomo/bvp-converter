@@ -443,4 +443,45 @@ final class ConverterCoreTest extends TestCase
     {
         $this->assertSame($expected, $this->converter->convertToWindDirectionName(...$arguments));
     }
+
+    /**
+     * @return void
+     */
+    public function testInvalidTooFewArguments(): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage(
+            'Too few arguments to function BVP\Converter\ConverterCore::invalid(), ' .
+            '0 passed and exactly 1 expected.'
+        );
+
+        $this->converter->invalid();
+    }
+
+    /**
+     * @return void
+     */
+    public function testInvalidTooManyArguments(): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage(
+            'Too many arguments to function BVP\Converter\ConverterCore::invalid(), ' .
+            '2 passed and exactly 1 expected.'
+        );
+
+        $this->converter->invalid(1, 2);
+    }
+
+    /**
+     * @return void
+     */
+    public function testInvalidUndefinedMethod(): void
+    {
+        $this->expectException(\BadMethodCallException::class);
+        $this->expectExceptionMessage(
+            'Call to undefined method BVP\Converter\Converters\CoreConverter::invalid().'
+        );
+
+        $this->converter->invalid(1);
+    }
 }
