@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace BVP\Converter\Tests;
 
-use InvalidArgumentException;
 use BVP\Converter\Converter;
 use PHPUnit\Framework\TestCase;
 
@@ -18,7 +17,7 @@ final class ConverterExceptionTest extends TestCase
      */
     public function testInvalidTooFewArguments(): void
     {
-        $this->expectException(InvalidArgumentException::class);
+        $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage(
             'Too few arguments to function BVP\Converter\ConverterCore::invalid(), ' .
             '0 passed and exactly 1 expected.'
@@ -32,7 +31,7 @@ final class ConverterExceptionTest extends TestCase
      */
     public function testInvalidTooManyArguments(): void
     {
-        $this->expectException(InvalidArgumentException::class);
+        $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage(
             'Too many arguments to function BVP\Converter\ConverterCore::invalid(), ' .
             '2 passed and exactly 1 expected.'

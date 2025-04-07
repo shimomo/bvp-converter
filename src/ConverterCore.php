@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace BVP\Converter;
 
-use InvalidArgumentException;
 use BVP\Converter\Converters\ClassConverter;
 use BVP\Converter\Converters\ConverterInterface;
 use BVP\Converter\Converters\CoreConverter;
@@ -56,7 +55,7 @@ class ConverterCore implements ConverterCoreInterface
         }
 
         $messageType = $countArguments === 0 ? 'few' : 'many';
-        throw new InvalidArgumentException(
+        throw new \InvalidArgumentException(
             'Too ' . $messageType . ' arguments to function ' . self::class . '::' . $name . '(), ' .
             $countArguments . ' passed and exactly 1 expected.'
         );
