@@ -7,7 +7,7 @@ namespace BVP\Converter\Converters;
 /**
  * @author shimomo
  */
-interface CoreParserInterface
+interface CoreParserInterface extends ConverterInterface
 {
     /**
      * @param  string|null  $value
