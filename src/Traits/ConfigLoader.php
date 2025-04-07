@@ -32,7 +32,7 @@ trait ConfigLoader
         }
 
         throw new \InvalidArgumentException(
-            'Config file \'' . $fileName . '\' does not exist.'
+            __METHOD__ . "() - Config file '{$fileName}' does not exist."
         );
     }
 }
