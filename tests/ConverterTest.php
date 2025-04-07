@@ -439,8 +439,9 @@ final class ConverterTest extends TestCase
     {
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage(
-            'BVP\Converter\ConverterCore::__call() - Too few arguments to function BVP\Converter\ConverterCore::invalid(), ' .
-            '0 passed and exactly 1 expected.'
+            "BVP\Converter\ConverterCore::__call() - " .
+            "Too few arguments to function BVP\Converter\ConverterCore::invalid(), " .
+            "0 passed and exactly 1 expected."
         );
 
         Converter::invalid();
@@ -453,8 +454,9 @@ final class ConverterTest extends TestCase
     {
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage(
-            'BVP\Converter\ConverterCore::__call() - Too many arguments to function BVP\Converter\ConverterCore::invalid(), ' .
-            '2 passed and exactly 1 expected.'
+            "BVP\Converter\ConverterCore::__call() - " .
+            "Too many arguments to function BVP\Converter\ConverterCore::invalid(), " .
+            "2 passed and exactly 1 expected."
         );
 
         Converter::invalid(1, 2);
@@ -467,7 +469,8 @@ final class ConverterTest extends TestCase
     {
         $this->expectException(\BadMethodCallException::class);
         $this->expectExceptionMessage(
-            'BVP\Converter\ConverterCore::convert() - Call to undefined method BVP\Converter\Converters\CoreConverter::invalid().'
+            "BVP\Converter\ConverterCore::convert() - " .
+            "Call to undefined method BVP\Converter\Converters\CoreConverter::invalid()."
         );
 
         Converter::invalid(1);
