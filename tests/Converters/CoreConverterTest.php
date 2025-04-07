@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace BVP\Converter\Tests\Converters;
 
 use BVP\Converter\Converters\CoreConverter;
+use PHPUnit\Framework\Attributes\DataProviderExternal;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -26,59 +27,46 @@ final class CoreConverterTest extends TestCase
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testString(): void
+    #[DataProviderExternal(CoreConverterDataProvider::class, 'convertToStringProvider')]
+    public function testConvertToString(array $arguments, ?string $expected): void
     {
-        $this->assertSame('1', $this->converter->convertToString(1));
-        $this->assertSame('1.2', $this->converter->convertToString(1.2));
-        $this->assertSame('1', $this->converter->convertToString('１'));
-        $this->assertSame('1.2', $this->converter->convertToString('１.２'));
-        $this->assertSame('加藤 峻二', $this->converter->convertToString('加藤 峻二'));
-        $this->assertSame('加藤 峻二', $this->converter->convertToString('加藤　峻二'));
-        $this->assertNull($this->converter->convertToString(null));
+        $this->assertSame($expected, $this->converter->convertToString(...$arguments));
     }
 
     /**
+     * @param  array     $arguments
+     * @param  int|null  $expected
      * @return void
      */
-    public function testInt(): void
+    #[DataProviderExternal(CoreConverterDataProvider::class, 'convertToIntProvider')]
+    public function testConvertToInt(array $arguments, ?int $expected): void
     {
-        $this->assertSame(1, $this->converter->convertToInt(1));
-        $this->assertSame(1, $this->converter->convertToInt(1.2));
-        $this->assertSame(0, $this->converter->convertToInt('１'));
-        $this->assertSame(0, $this->converter->convertToInt('１.２'));
-        $this->assertSame(0, $this->converter->convertToInt('加藤 峻二'));
-        $this->assertSame(0, $this->converter->convertToInt('加藤　峻二'));
-        $this->assertNull($this->converter->convertToInt(null));
+        $this->assertSame($expected, $this->converter->convertToInt(...$arguments));
     }
 
     /**
+     * @param  array       $arguments
+     * @param  float|null  $expected
      * @return void
      */
-    public function testFloat(): void
+    #[DataProviderExternal(CoreConverterDataProvider::class, 'convertToFloatProvider')]
+    public function testConvertToFloat(array $arguments, ?float $expected): void
     {
-        $this->assertSame(1.0, $this->converter->convertToFloat(1));
-        $this->assertSame(1.2, $this->converter->convertToFloat(1.2));
-        $this->assertSame(0.0, $this->converter->convertToFloat('１'));
-        $this->assertSame(0.0, $this->converter->convertToFloat('１.２'));
-        $this->assertSame(0.0, $this->converter->convertToFloat('加藤 峻二'));
-        $this->assertSame(0.0, $this->converter->convertToFloat('加藤　峻二'));
-        $this->assertNull($this->converter->convertToFloat(null));
+        $this->assertSame($expected, $this->converter->convertToFloat(...$arguments));
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testName(): void
+    #[DataProviderExternal(CoreConverterDataProvider::class, 'convertToNameProvider')]
+    public function testConvertToName(array $arguments, ?string $expected): void
     {
-        $this->assertSame('加藤 峻二', $this->converter->convertToName('加藤 峻二'));
-        $this->assertSame('加藤 峻二', $this->converter->convertToName(' 加藤 峻二'));
-        $this->assertSame('加藤 峻二', $this->converter->convertToName('加藤 峻二 '));
-        $this->assertSame('加藤 峻二', $this->converter->convertToName('加藤　峻二'));
-        $this->assertSame('加藤 峻二', $this->converter->convertToName('　加藤　峻二'));
-        $this->assertSame('加藤 峻二', $this->converter->convertToName('加藤　峻二　'));
-        $this->assertNull($this->converter->convertToName('加藤峻二'));
-        $this->assertNull($this->converter->convertToName(null));
+        $this->assertSame($expected, $this->converter->convertToName(...$arguments));
     }
 }

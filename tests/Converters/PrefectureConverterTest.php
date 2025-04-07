@@ -6,6 +6,7 @@ namespace BVP\Converter\Tests\Converters;
 
 use BVP\Converter\Converters\CoreConverter;
 use BVP\Converter\Converters\PrefectureConverter;
+use PHPUnit\Framework\Attributes\DataProviderExternal;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -29,92 +30,68 @@ final class PrefectureConverterTest extends TestCase
     }
 
     /**
+     * @param  array     $arguments
+     * @param  int|null  $expected
      * @return void
      */
-    public function testPrefectureId(): void
+    #[DataProviderExternal(PrefectureConverterDataProvider::class, 'convertToPrefectureNumberProvider')]
+    public function testConvertToPrefectureNumber(array $arguments, ?int $expected): void
     {
-        $this->assertSame(13, $this->converter->convertToPrefectureNumber(13));
-        $this->assertSame(13, $this->converter->convertToPrefectureNumber('東京都'));
-        $this->assertSame(13, $this->converter->convertToPrefectureNumber('東京'));
-        $this->assertSame(13, $this->converter->convertToPrefectureNumber('とうきょう'));
-        $this->assertSame(13, $this->converter->convertToPrefectureNumber('トウキョウ'));
-        $this->assertSame(13, $this->converter->convertToPrefectureNumber('tokyo'));
-        $this->assertNull($this->converter->convertToPrefectureNumber('競艇'));
-        $this->assertNull($this->converter->convertToPrefectureNumber(null));
+        $this->assertSame($expected, $this->converter->convertToPrefectureNumber(...$arguments));
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testPrefectureName(): void
+    #[DataProviderExternal(PrefectureConverterDataProvider::class, 'convertToPrefectureNameProvider')]
+    public function testConvertToPrefectureName(array $arguments, ?string $expected): void
     {
-        $this->assertSame('東京都', $this->converter->convertToPrefectureName(13));
-        $this->assertSame('東京都', $this->converter->convertToPrefectureName('東京都'));
-        $this->assertSame('東京都', $this->converter->convertToPrefectureName('東京'));
-        $this->assertSame('東京都', $this->converter->convertToPrefectureName('とうきょう'));
-        $this->assertSame('東京都', $this->converter->convertToPrefectureName('トウキョウ'));
-        $this->assertSame('東京都', $this->converter->convertToPrefectureName('tokyo'));
-        $this->assertNull($this->converter->convertToPrefectureName('競艇'));
-        $this->assertNull($this->converter->convertToPrefectureName(null));
+        $this->assertSame($expected, $this->converter->convertToPrefectureName(...$arguments));
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testPrefectureShortName(): void
+    #[DataProviderExternal(PrefectureConverterDataProvider::class, 'convertToPrefectureShortNameProvider')]
+    public function testConvertToPrefectureShortName(array $arguments, ?string $expected): void
     {
-        $this->assertSame('東京', $this->converter->convertToPrefectureShortName(13));
-        $this->assertSame('東京', $this->converter->convertToPrefectureShortName('東京都'));
-        $this->assertSame('東京', $this->converter->convertToPrefectureShortName('東京'));
-        $this->assertSame('東京', $this->converter->convertToPrefectureShortName('とうきょう'));
-        $this->assertSame('東京', $this->converter->convertToPrefectureShortName('トウキョウ'));
-        $this->assertSame('東京', $this->converter->convertToPrefectureShortName('tokyo'));
-        $this->assertNull($this->converter->convertToPrefectureShortName('競艇'));
-        $this->assertNull($this->converter->convertToPrefectureShortName(null));
+        $this->assertSame($expected, $this->converter->convertToPrefectureShortName(...$arguments));
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testPrefectureHiraganaName(): void
+    #[DataProviderExternal(PrefectureConverterDataProvider::class, 'convertToPrefectureHiraganaNameProvider')]
+    public function testConvertToPrefectureHiraganaName(array $arguments, ?string $expected): void
     {
-        $this->assertSame('とうきょうと', $this->converter->convertToPrefectureHiraganaName(13));
-        $this->assertSame('とうきょうと', $this->converter->convertToPrefectureHiraganaName('東京都'));
-        $this->assertSame('とうきょうと', $this->converter->convertToPrefectureHiraganaName('東京'));
-        $this->assertSame('とうきょうと', $this->converter->convertToPrefectureHiraganaName('とうきょう'));
-        $this->assertSame('とうきょうと', $this->converter->convertToPrefectureHiraganaName('トウキョウ'));
-        $this->assertSame('とうきょうと', $this->converter->convertToPrefectureHiraganaName('tokyo'));
-        $this->assertNull($this->converter->convertToPrefectureHiraganaName('競艇'));
-        $this->assertNull($this->converter->convertToPrefectureHiraganaName(null));
+        $this->assertSame($expected, $this->converter->convertToPrefectureHiraganaName(...$arguments));
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testPrefectureKatakanaName(): void
+    #[DataProviderExternal(PrefectureConverterDataProvider::class, 'convertToPrefectureKatakanaNameProvider')]
+    public function testConvertToPrefectureKatakanaName(array $arguments, ?string $expected): void
     {
-        $this->assertSame('トウキョウト', $this->converter->convertToPrefectureKatakanaName(13));
-        $this->assertSame('トウキョウト', $this->converter->convertToPrefectureKatakanaName('東京都'));
-        $this->assertSame('トウキョウト', $this->converter->convertToPrefectureKatakanaName('東京'));
-        $this->assertSame('トウキョウト', $this->converter->convertToPrefectureKatakanaName('とうきょう'));
-        $this->assertSame('トウキョウト', $this->converter->convertToPrefectureKatakanaName('トウキョウ'));
-        $this->assertSame('トウキョウト', $this->converter->convertToPrefectureKatakanaName('tokyo'));
-        $this->assertNull($this->converter->convertToPrefectureKatakanaName('競艇'));
-        $this->assertNull($this->converter->convertToPrefectureKatakanaName(null));
+        $this->assertSame($expected, $this->converter->convertToPrefectureKatakanaName(...$arguments));
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testPrefectureEnglishName(): void
+    #[DataProviderExternal(PrefectureConverterDataProvider::class, 'convertToPrefectureEnglishNameProvider')]
+    public function testConvertToPrefectureEnglishName(array $arguments, ?string $expected): void
     {
-        $this->assertSame('tokyo', $this->converter->convertToPrefectureEnglishName(13));
-        $this->assertSame('tokyo', $this->converter->convertToPrefectureEnglishName('東京都'));
-        $this->assertSame('tokyo', $this->converter->convertToPrefectureEnglishName('東京'));
-        $this->assertSame('tokyo', $this->converter->convertToPrefectureEnglishName('とうきょう'));
-        $this->assertSame('tokyo', $this->converter->convertToPrefectureEnglishName('トウキョウ'));
-        $this->assertSame('tokyo', $this->converter->convertToPrefectureEnglishName('tokyo'));
-        $this->assertNull($this->converter->convertToPrefectureEnglishName('競艇'));
-        $this->assertNull($this->converter->convertToPrefectureEnglishName(null));
+        $this->assertSame($expected, $this->converter->convertToPrefectureEnglishName(...$arguments));
     }
 }

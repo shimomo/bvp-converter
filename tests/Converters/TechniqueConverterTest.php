@@ -6,6 +6,7 @@ namespace BVP\Converter\Tests\Converters;
 
 use BVP\Converter\Converters\CoreConverter;
 use BVP\Converter\Converters\TechniqueConverter;
+use PHPUnit\Framework\Attributes\DataProviderExternal;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -29,38 +30,35 @@ final class TechniqueConverterTest extends TestCase
     }
 
     /**
+     * @param  array     $arguments
+     * @param  int|null  $expected
      * @return void
      */
-    public function testTechniqueId(): void
+    #[DataProviderExternal(TechniqueConverterDataProvider::class, 'convertToTechniqueNumberProvider')]
+    public function testConvertToTechniqueNumber(array $arguments, ?int $expected): void
     {
-        $this->assertSame(2, $this->converter->convertToTechniqueNumber(2));
-        $this->assertSame(2, $this->converter->convertToTechniqueNumber('差し'));
-        $this->assertSame(2, $this->converter->convertToTechniqueNumber('差'));
-        $this->assertNull($this->converter->convertToTechniqueNumber('競艇'));
-        $this->assertNull($this->converter->convertToTechniqueNumber(null));
+        $this->assertSame($expected, $this->converter->convertToTechniqueNumber(...$arguments));
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testTechniqueName(): void
+    #[DataProviderExternal(TechniqueConverterDataProvider::class, 'convertToTechniqueNameProvider')]
+    public function testConvertToTechniqueName(array $arguments, ?string $expected): void
     {
-        $this->assertSame('差し', $this->converter->convertToTechniqueName(2));
-        $this->assertSame('差し', $this->converter->convertToTechniqueName('差し'));
-        $this->assertSame('差し', $this->converter->convertToTechniqueName('差'));
-        $this->assertNull($this->converter->convertToTechniqueName('競艇'));
-        $this->assertNull($this->converter->convertToTechniqueName(null));
+        $this->assertSame($expected, $this->converter->convertToTechniqueName(...$arguments));
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testTechniqueShortName(): void
+    #[DataProviderExternal(TechniqueConverterDataProvider::class, 'convertToTechniqueShortNameProvider')]
+    public function testConvertToTechniqueShortName(array $arguments, ?string $expected): void
     {
-        $this->assertSame('差', $this->converter->convertToTechniqueShortName(2));
-        $this->assertSame('差', $this->converter->convertToTechniqueShortName('差し'));
-        $this->assertSame('差', $this->converter->convertToTechniqueShortName('差'));
-        $this->assertNull($this->converter->convertToTechniqueShortName('競艇'));
-        $this->assertNull($this->converter->convertToTechniqueShortName(null));
+        $this->assertSame($expected, $this->converter->convertToTechniqueShortName(...$arguments));
     }
 }

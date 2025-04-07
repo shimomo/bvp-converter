@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace BVP\Converter\Tests;
 
 use BVP\Converter\Converter;
+use PHPUnit\Framework\Attributes\DataProviderExternal;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -13,372 +14,420 @@ use PHPUnit\Framework\TestCase;
 final class ConverterTest extends TestCase
 {
     /**
+     * @param  array     $arguments
+     * @param  int|null  $expected
      * @return void
      */
-    public function testString(): void
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'convertToClassNumberProvider')]
+    public function testConvertToClassNumber(array $arguments, ?int $expected): void
     {
-        $this->assertSame('1', Converter::convertToString(1));
-        $this->assertSame('1.2', Converter::convertToString(1.2));
-        $this->assertSame('1', Converter::convertToString('１'));
-        $this->assertSame('1.2', Converter::convertToString('１.２'));
-        $this->assertSame('加藤 峻二', Converter::convertToString('加藤 峻二'));
-        $this->assertSame('加藤 峻二', Converter::convertToString('加藤　峻二'));
-        $this->assertNull(Converter::convertToString(null));
+        $this->assertSame($expected, Converter::convertToClassNumber(...$arguments));
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testFloat(): void
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'convertToClassNameProvider')]
+    public function testConvertToClassName(array $arguments, ?string $expected): void
     {
-        $this->assertSame(1, Converter::convertToInt(1));
-        $this->assertSame(1, Converter::convertToInt(1.2));
-        $this->assertSame(0, Converter::convertToInt('１'));
-        $this->assertSame(0, Converter::convertToInt('１.２'));
-        $this->assertSame(0, Converter::convertToInt('加藤 峻二'));
-        $this->assertSame(0, Converter::convertToInt('加藤　峻二'));
-        $this->assertNull(Converter::convertToInt(null));
+        $this->assertSame($expected, Converter::convertToClassName(...$arguments));
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testInt(): void
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'convertToClassShortNameProvider')]
+    public function testConvertToClassShortName(array $arguments, ?string $expected): void
     {
-        $this->assertSame(1.0, Converter::convertToFloat(1));
-        $this->assertSame(1.2, Converter::convertToFloat(1.2));
-        $this->assertSame(0.0, Converter::convertToFloat('１'));
-        $this->assertSame(0.0, Converter::convertToFloat('１.２'));
-        $this->assertSame(0.0, Converter::convertToFloat('加藤 峻二'));
-        $this->assertSame(0.0, Converter::convertToFloat('加藤　峻二'));
-        $this->assertNull(Converter::convertToFloat(null));
+        $this->assertSame($expected, Converter::convertToClassShortName(...$arguments));
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testName(): void
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'convertToStringProvider')]
+    public function testConvertToString(array $arguments, ?string $expected): void
     {
-        $this->assertSame('加藤 峻二', Converter::convertToName('加藤 峻二'));
-        $this->assertSame('加藤 峻二', Converter::convertToName(' 加藤 峻二'));
-        $this->assertSame('加藤 峻二', Converter::convertToName('加藤 峻二 '));
-        $this->assertSame('加藤 峻二', Converter::convertToName('加藤　峻二'));
-        $this->assertSame('加藤 峻二', Converter::convertToName('　加藤　峻二'));
-        $this->assertSame('加藤 峻二', Converter::convertToName('加藤　峻二　'));
-        $this->assertNull(Converter::convertToName('加藤峻二'));
-        $this->assertNull(Converter::convertToName(null));
+        $this->assertSame($expected, Converter::convertToString(...$arguments));
     }
 
     /**
+     * @param  array       $arguments
+     * @param  float|null  $expected
      * @return void
      */
-    public function testClassId(): void
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'convertToFloatProvider')]
+    public function testConvertToFloat(array $arguments, ?float $expected): void
     {
-        $this->assertSame(4, Converter::convertToClassNumber(4));
-        $this->assertSame(4, Converter::convertToClassNumber('B2級'));
-        $this->assertSame(4, Converter::convertToClassNumber('B2'));
-        $this->assertNull(Converter::convertToClassNumber(-1));
-        $this->assertNull(Converter::convertToClassNumber('競艇'));
-        $this->assertNull(Converter::convertToClassNumber(null));
+        $this->assertSame($expected, Converter::convertToFloat(...$arguments));
     }
 
     /**
+     * @param  array     $arguments
+     * @param  int|null  $expected
      * @return void
      */
-    public function testClassName(): void
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'convertToIntProvider')]
+    public function testConvertToInt(array $arguments, ?int $expected): void
     {
-        $this->assertSame('B2級', Converter::convertToClassName(4));
-        $this->assertSame('B2級', Converter::convertToClassName('B2級'));
-        $this->assertSame('B2級', Converter::convertToClassName('B2'));
-        $this->assertNull(Converter::convertToClassName(-1));
-        $this->assertNull(Converter::convertToClassName('競艇'));
-        $this->assertNull(Converter::convertToClassName(null));
+        $this->assertSame($expected, Converter::convertToInt(...$arguments));
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testClassShortName(): void
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'convertToNameProvider')]
+    public function testConvertToName(array $arguments, ?string $expected): void
     {
-        $this->assertSame('B2', Converter::convertToClassShortName(4));
-        $this->assertSame('B2', Converter::convertToClassShortName('B2級'));
-        $this->assertSame('B2', Converter::convertToClassShortName('B2'));
-        $this->assertNull(Converter::convertToClassShortName(-1));
-        $this->assertNull(Converter::convertToClassShortName('競艇'));
-        $this->assertNull(Converter::convertToClassShortName(null));
+        $this->assertSame($expected, Converter::convertToName(...$arguments));
     }
 
     /**
+     * @param  array     $arguments
+     * @param  int|null  $expected
      * @return void
      */
-    public function testPlaceId(): void
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'parseFlyingCountProvider')]
+    public function testParseFlyingCount(array $arguments, ?int $expected): void
     {
-        $this->assertSame(8, Converter::convertToPlaceNumber(8));
-        $this->assertSame(8, Converter::convertToPlaceNumber('エンスト失格'));
-        $this->assertSame(8, Converter::convertToPlaceNumber('エ'));
-        $this->assertNull(Converter::convertToPlaceName(-1));
-        $this->assertNull(Converter::convertToPlaceName('競艇'));
-        $this->assertNull(Converter::convertToPlaceName(null));
+        $this->assertSame($expected, Converter::parseFlyingCount(...$arguments));
     }
 
     /**
+     * @param  array     $arguments
+     * @param  int|null  $expected
      * @return void
      */
-    public function testPlaceName(): void
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'parseLateCountProvider')]
+    public function testParseLateCount(array $arguments, ?int $expected): void
     {
-        $this->assertSame('エンスト失格', Converter::convertToPlaceName(8));
-        $this->assertSame('エンスト失格', Converter::convertToPlaceName('エンスト失格'));
-        $this->assertSame('エンスト失格', Converter::convertToPlaceName('エ'));
-        $this->assertNull(Converter::convertToPlaceName(-1));
-        $this->assertNull(Converter::convertToPlaceName('競艇'));
-        $this->assertNull(Converter::convertToPlaceName(null));
+        $this->assertSame($expected, Converter::parseLateCount(...$arguments));
     }
 
     /**
+     * @param  array       $arguments
+     * @param  float|null  $expected
      * @return void
      */
-    public function testPlaceShortName(): void
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'parseStartTimingProvider')]
+    public function testParseStartTiming(array $arguments, ?float $expected): void
     {
-        $this->assertSame('エ', Converter::convertToPlaceShortName(8));
-        $this->assertSame('エ', Converter::convertToPlaceShortName('エンスト失格'));
-        $this->assertSame('エ', Converter::convertToPlaceShortName('エ'));
-        $this->assertNull(Converter::convertToPlaceShortName(-1));
-        $this->assertNull(Converter::convertToPlaceShortName('競艇'));
-        $this->assertNull(Converter::convertToPlaceShortName(null));
+        $this->assertSame($expected, Converter::parseStartTiming(...$arguments));
     }
 
     /**
+     * @param  array     $arguments
+     * @param  int|null  $expected
      * @return void
      */
-    public function testTechniqueId(): void
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'parseWindProvider')]
+    public function testParseWind(array $arguments, ?int $expected): void
     {
-        $this->assertSame(2, Converter::convertToTechniqueNumber(2));
-        $this->assertSame(2, Converter::convertToTechniqueNumber('差し'));
-        $this->assertSame(2, Converter::convertToTechniqueNumber('差'));
-        $this->assertNull(Converter::convertToTechniqueName(-1));
-        $this->assertNull(Converter::convertToTechniqueName('競艇'));
-        $this->assertNull(Converter::convertToTechniqueName(null));
+        $this->assertSame($expected, Converter::parseWind(...$arguments));
     }
 
     /**
+     * @param  array     $arguments
+     * @param  int|null  $expected
      * @return void
      */
-    public function testTechniqueName(): void
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'parseWindDirectionNumberProvider')]
+    public function testParseWindDirectionNumber(array $arguments, ?int $expected): void
     {
-        $this->assertSame('差し', Converter::convertToTechniqueName(2));
-        $this->assertSame('差し', Converter::convertToTechniqueName('差し'));
-        $this->assertSame('差し', Converter::convertToTechniqueName('差'));
-        $this->assertNull(Converter::convertToTechniqueName(-1));
-        $this->assertNull(Converter::convertToTechniqueName('競艇'));
-        $this->assertNull(Converter::convertToTechniqueName(null));
+        $this->assertSame($expected, Converter::parseWindDirectionNumber(...$arguments));
     }
 
     /**
+     * @param  array     $arguments
+     * @param  int|null  $expected
      * @return void
      */
-    public function testTechniqueShortName(): void
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'parseWaveProvider')]
+    public function testParseWave(array $arguments, ?int $expected): void
     {
-        $this->assertSame('差', Converter::convertToTechniqueShortName(2));
-        $this->assertSame('差', Converter::convertToTechniqueShortName('差し'));
-        $this->assertSame('差', Converter::convertToTechniqueShortName('差'));
-        $this->assertNull(Converter::convertToTechniqueShortName(-1));
-        $this->assertNull(Converter::convertToTechniqueShortName('競艇'));
-        $this->assertNull(Converter::convertToTechniqueShortName(null));
+        $this->assertSame($expected, Converter::parseWave(...$arguments));
     }
 
     /**
+     * @param  array       $arguments
+     * @param  float|null  $expected
      * @return void
      */
-    public function testWeatherId(): void
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'parseTemperatureProvider')]
+    public function testParseTemperature(array $arguments, ?float $expected): void
     {
-        $this->assertSame(2, Converter::convertToWeatherNumber(2));
-        $this->assertSame(2, Converter::convertToWeatherNumber('曇り'));
-        $this->assertSame(2, Converter::convertToWeatherNumber('曇'));
-        $this->assertNull(Converter::convertToWeatherNumber(-1));
-        $this->assertNull(Converter::convertToWeatherNumber('競艇'));
-        $this->assertNull(Converter::convertToWeatherNumber(null));
+        $this->assertSame($expected, Converter::parseTemperature(...$arguments));
     }
 
     /**
+     * @param  array     $arguments
+     * @param  int|null  $expected
      * @return void
      */
-    public function testWeatherName(): void
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'convertToPlaceNumberProvider')]
+    public function testConvertToPlaceNumber(array $arguments, ?int $expected): void
     {
-        $this->assertSame('曇り', Converter::convertToWeatherName(2));
-        $this->assertSame('曇り', Converter::convertToWeatherName('曇り'));
-        $this->assertSame('曇り', Converter::convertToWeatherName('曇'));
-        $this->assertNull(Converter::convertToWeatherName(-1));
-        $this->assertNull(Converter::convertToWeatherName('競艇'));
-        $this->assertNull(Converter::convertToWeatherName(null));
+        $this->assertSame($expected, Converter::convertToPlaceNumber(...$arguments));
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testWeatherShortName(): void
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'convertToPlaceNameProvider')]
+    public function testConvertToPlaceName(array $arguments, ?string $expected): void
     {
-        $this->assertSame('曇', Converter::convertToWeatherShortName(2));
-        $this->assertSame('曇', Converter::convertToWeatherShortName('曇り'));
-        $this->assertSame('曇', Converter::convertToWeatherShortName('曇'));
-        $this->assertNull(Converter::convertToWeatherShortName(-1));
-        $this->assertNull(Converter::convertToWeatherShortName('競艇'));
-        $this->assertNull(Converter::convertToWeatherShortName(null));
+        $this->assertSame($expected, Converter::convertToPlaceName(...$arguments));
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testWindDirectionId(): void
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'convertToPlaceShortNameProvider')]
+    public function testConvertToPlaceShortName(array $arguments, ?string $expected): void
     {
-        $this->assertSame(4, Converter::convertToWindDirectionNumber(4));
-        $this->assertSame(4, Converter::convertToWindDirectionNumber('東北東'));
-        $this->assertNull(Converter::convertToWindDirectionNumber(-1));
-        $this->assertNull(Converter::convertToWindDirectionNumber('競艇'));
-        $this->assertNull(Converter::convertToWindDirectionNumber(null));
+        $this->assertSame($expected, Converter::convertToPlaceShortName(...$arguments));
     }
 
     /**
+     * @param  array     $arguments
+     * @param  int|null  $expected
      * @return void
      */
-    public function testWindDirectionName(): void
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'convertToPrefectureNumberProvider')]
+    public function testConvertToPrefectureNumber(array $arguments, ?int $expected): void
     {
-        $this->assertSame('東北東', Converter::convertToWindDirectionName(4));
-        $this->assertSame('東北東', Converter::convertToWindDirectionName('東北東'));
-        $this->assertNull(Converter::convertToWindDirectionName(-1));
-        $this->assertNull(Converter::convertToWindDirectionName('競艇'));
-        $this->assertNull(Converter::convertToWindDirectionName(null));
+        $this->assertSame($expected, Converter::convertToPrefectureNumber(...$arguments));
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testPrefectureId(): void
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'convertToPrefectureNameProvider')]
+    public function testConvertToPrefectureName(array $arguments, ?string $expected): void
     {
-        $this->assertSame(13, Converter::convertToPrefectureNumber(13));
-        $this->assertSame(13, Converter::convertToPrefectureNumber('東京都'));
-        $this->assertSame(13, Converter::convertToPrefectureNumber('東京'));
-        $this->assertSame(13, Converter::convertToPrefectureNumber('とうきょう'));
-        $this->assertSame(13, Converter::convertToPrefectureNumber('トウキョウ'));
-        $this->assertSame(13, Converter::convertToPrefectureNumber('tokyo'));
-        $this->assertNull(Converter::convertToPrefectureNumber(-1));
-        $this->assertNull(Converter::convertToPrefectureNumber('競艇'));
-        $this->assertNull(Converter::convertToPrefectureNumber(null));
+        $this->assertSame($expected, Converter::convertToPrefectureName(...$arguments));
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testPrefectureName(): void
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'convertToPrefectureShortNameProvider')]
+    public function testConvertToPrefectureShortName(array $arguments, ?string $expected): void
     {
-        $this->assertSame('東京都', Converter::convertToPrefectureName(13));
-        $this->assertSame('東京都', Converter::convertToPrefectureName('東京都'));
-        $this->assertSame('東京都', Converter::convertToPrefectureName('東京'));
-        $this->assertSame('東京都', Converter::convertToPrefectureName('とうきょう'));
-        $this->assertSame('東京都', Converter::convertToPrefectureName('トウキョウ'));
-        $this->assertSame('東京都', Converter::convertToPrefectureName('tokyo'));
-        $this->assertNull(Converter::convertToPrefectureName(-1));
-        $this->assertNull(Converter::convertToPrefectureName('競艇'));
-        $this->assertNull(Converter::convertToPrefectureName(null));
+        $this->assertSame($expected, Converter::convertToPrefectureShortName(...$arguments));
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testPrefectureShortName(): void
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'convertToPrefectureHiraganaNameProvider')]
+    public function testConvertToPrefectureHiraganaName(array $arguments, ?string $expected): void
     {
-        $this->assertSame('東京', Converter::convertToPrefectureShortName(13));
-        $this->assertSame('東京', Converter::convertToPrefectureShortName('東京都'));
-        $this->assertSame('東京', Converter::convertToPrefectureShortName('東京'));
-        $this->assertSame('東京', Converter::convertToPrefectureShortName('とうきょう'));
-        $this->assertSame('東京', Converter::convertToPrefectureShortName('トウキョウ'));
-        $this->assertSame('東京', Converter::convertToPrefectureShortName('tokyo'));
-        $this->assertNull(Converter::convertToPrefectureShortName(-1));
-        $this->assertNull(Converter::convertToPrefectureShortName('競艇'));
-        $this->assertNull(Converter::convertToPrefectureShortName(null));
+        $this->assertSame($expected, Converter::convertToPrefectureHiraganaName(...$arguments));
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testPrefectureHiraganaName(): void
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'convertToPrefectureKatakanaNameProvider')]
+    public function testConvertToPrefectureKatakanaName(array $arguments, ?string $expected): void
     {
-        $this->assertSame('とうきょうと', Converter::convertToPrefectureHiraganaName(13));
-        $this->assertSame('とうきょうと', Converter::convertToPrefectureHiraganaName('東京都'));
-        $this->assertSame('とうきょうと', Converter::convertToPrefectureHiraganaName('東京'));
-        $this->assertSame('とうきょうと', Converter::convertToPrefectureHiraganaName('とうきょう'));
-        $this->assertSame('とうきょうと', Converter::convertToPrefectureHiraganaName('トウキョウ'));
-        $this->assertSame('とうきょうと', Converter::convertToPrefectureHiraganaName('tokyo'));
-        $this->assertNull(Converter::convertToPrefectureHiraganaName(-1));
-        $this->assertNull(Converter::convertToPrefectureHiraganaName('競艇'));
-        $this->assertNull(Converter::convertToPrefectureHiraganaName(null));
+        $this->assertSame($expected, Converter::convertToPrefectureKatakanaName(...$arguments));
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testPrefectureKatakanaName(): void
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'convertToPrefectureEnglishNameProvider')]
+    public function testConvertToPrefectureEnglishName(array $arguments, ?string $expected): void
     {
-        $this->assertSame('トウキョウト', Converter::convertToPrefectureKatakanaName(13));
-        $this->assertSame('トウキョウト', Converter::convertToPrefectureKatakanaName('東京都'));
-        $this->assertSame('トウキョウト', Converter::convertToPrefectureKatakanaName('東京'));
-        $this->assertSame('トウキョウト', Converter::convertToPrefectureKatakanaName('とうきょう'));
-        $this->assertSame('トウキョウト', Converter::convertToPrefectureKatakanaName('トウキョウ'));
-        $this->assertNull(Converter::convertToPrefectureKatakanaName(-1));
-        $this->assertNull(Converter::convertToPrefectureKatakanaName('競艇'));
-        $this->assertNull(Converter::convertToPrefectureKatakanaName(null));
+        $this->assertSame($expected, Converter::convertToPrefectureEnglishName(...$arguments));
     }
 
     /**
+     * @param  array     $arguments
+     * @param  int|null  $expected
      * @return void
      */
-    public function testPrefectureEnglishName(): void
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'convertToStadiumNumberProvider')]
+    public function testConvertToStadiumNumber(array $arguments, ?int $expected): void
     {
-        $this->assertSame('tokyo', Converter::convertToPrefectureEnglishName(13));
-        $this->assertSame('tokyo', Converter::convertToPrefectureEnglishName('東京都'));
-        $this->assertSame('tokyo', Converter::convertToPrefectureEnglishName('東京'));
-        $this->assertSame('tokyo', Converter::convertToPrefectureEnglishName('とうきょう'));
-        $this->assertSame('tokyo', Converter::convertToPrefectureEnglishName('トウキョウ'));
-        $this->assertNull(Converter::convertToPrefectureEnglishName(-1));
-        $this->assertNull(Converter::convertToPrefectureEnglishName('競艇'));
-        $this->assertNull(Converter::convertToPrefectureEnglishName(null));
+        $this->assertSame($expected, Converter::convertToStadiumNumber(...$arguments));
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testStadiumId(): void
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'convertToStadiumNameProvider')]
+    public function testConvertToStadiumName(array $arguments, ?string $expected): void
     {
-        $this->assertSame(12, Converter::convertToStadiumNumber(12));
-        $this->assertSame(12, Converter::convertToStadiumNumber('ボートレース住之江'));
-        $this->assertSame(12, Converter::convertToStadiumNumber('住之江'));
-        $this->assertNull(Converter::convertToStadiumNumber(-1));
-        $this->assertNull(Converter::convertToStadiumNumber('競艇'));
-        $this->assertNull(Converter::convertToStadiumNumber(null));
+        $this->assertSame($expected, Converter::convertToStadiumName(...$arguments));
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testStadiumName(): void
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'convertToStadiumShortNameProvider')]
+    public function testConvertToStadiumShortName(array $arguments, ?string $expected): void
     {
-        $this->assertSame('ボートレース住之江', Converter::convertToStadiumName(12));
-        $this->assertSame('ボートレース住之江', Converter::convertToStadiumName('ボートレース住之江'));
-        $this->assertSame('ボートレース住之江', Converter::convertToStadiumName('住之江'));
-        $this->assertNull(Converter::convertToStadiumName(-1));
-        $this->assertNull(Converter::convertToStadiumName('競艇'));
-        $this->assertNull(Converter::convertToStadiumName(null));
+        $this->assertSame($expected, Converter::convertToStadiumShortName(...$arguments));
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testStadiumShortName(): void
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'convertToStadiumHiraganaNameProvider')]
+    public function testConvertToStadiumHiraganaName(array $arguments, ?string $expected): void
     {
-        $this->assertSame('住之江', Converter::convertToStadiumShortName(12));
-        $this->assertSame('住之江', Converter::convertToStadiumShortName('ボートレース住之江'));
-        $this->assertSame('住之江', Converter::convertToStadiumShortName('住之江'));
-        $this->assertNull(Converter::convertToStadiumShortName(-1));
-        $this->assertNull(Converter::convertToStadiumShortName('競艇'));
-        $this->assertNull(Converter::convertToStadiumShortName(null));
+        $this->assertSame($expected, Converter::convertToStadiumHiraganaName(...$arguments));
+    }
+
+    /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
+     * @return void
+     */
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'convertToStadiumKatakanaNameProvider')]
+    public function testConvertToStadiumKatakanaName(array $arguments, ?string $expected): void
+    {
+        $this->assertSame($expected, Converter::convertToStadiumKatakanaName(...$arguments));
+    }
+
+    /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
+     * @return void
+     */
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'convertToStadiumEnglishNameProvider')]
+    public function testConvertToStadiumEnglishName(array $arguments, ?string $expected): void
+    {
+        $this->assertSame($expected, Converter::convertToStadiumEnglishName(...$arguments));
+    }
+
+    /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
+     * @return void
+     */
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'convertToStadiumUrlProvider')]
+    public function testConvertToStadiumUrl(array $arguments, ?string $expected): void
+    {
+        $this->assertSame($expected, Converter::convertToStadiumUrl(...$arguments));
+    }
+
+    /**
+     * @param  array     $arguments
+     * @param  int|null  $expected
+     * @return void
+     */
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'convertToTechniqueNumberProvider')]
+    public function testConvertToTechniqueNumber(array $arguments, ?int $expected): void
+    {
+        $this->assertSame($expected, Converter::convertToTechniqueNumber(...$arguments));
+    }
+
+    /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
+     * @return void
+     */
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'convertToTechniqueNameProvider')]
+    public function testConvertToTechniqueName(array $arguments, ?string $expected): void
+    {
+        $this->assertSame($expected, Converter::convertToTechniqueName(...$arguments));
+    }
+
+    /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
+     * @return void
+     */
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'convertToTechniqueShortNameProvider')]
+    public function testConvertToTechniqueShortName(array $arguments, ?string $expected): void
+    {
+        $this->assertSame($expected, Converter::convertToTechniqueShortName(...$arguments));
+    }
+
+    /**
+     * @param  array     $arguments
+     * @param  int|null  $expected
+     * @return void
+     */
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'convertToWeatherNumberProvider')]
+    public function testConvertToWeatherNumber(array $arguments, ?int $expected): void
+    {
+        $this->assertSame($expected, Converter::convertToWeatherNumber(...$arguments));
+    }
+
+    /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
+     * @return void
+     */
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'convertToWeatherNameProvider')]
+    public function testConvertToWeatherName(array $arguments, ?string $expected): void
+    {
+        $this->assertSame($expected, Converter::convertToWeatherName(...$arguments));
+    }
+
+    /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
+     * @return void
+     */
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'convertToWeatherShortNameProvider')]
+    public function testConvertToWeatherShortName(array $arguments, ?string $expected): void
+    {
+        $this->assertSame($expected, Converter::convertToWeatherShortName(...$arguments));
+    }
+
+    /**
+     * @param  array     $arguments
+     * @param  int|null  $expected
+     * @return void
+     */
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'convertToWindDirectionNumberProvider')]
+    public function testConvertToWindDirectionNumber(array $arguments, ?int $expected): void
+    {
+        $this->assertSame($expected, Converter::convertToWindDirectionNumber(...$arguments));
+    }
+
+    /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
+     * @return void
+     */
+    #[DataProviderExternal(ConverterCoreDataProvider::class, 'convertToWindDirectionNameProvider')]
+    public function testConvertToWindDirectionName(array $arguments, ?string $expected): void
+    {
+        $this->assertSame($expected, Converter::convertToWindDirectionName(...$arguments));
     }
 }

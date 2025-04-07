@@ -6,6 +6,7 @@ namespace BVP\Converter\Tests\Converters;
 
 use BVP\Converter\Converters\CoreConverter;
 use BVP\Converter\Converters\WeatherConverter;
+use PHPUnit\Framework\Attributes\DataProviderExternal;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -29,38 +30,35 @@ final class WeatherConverterTest extends TestCase
     }
 
     /**
+     * @param  array     $arguments
+     * @param  int|null  $expected
      * @return void
      */
-    public function testWeatherId(): void
+    #[DataProviderExternal(WeatherConverterDataProvider::class, 'convertToWeatherNumberProvider')]
+    public function testConvertToWeatherNumber(array $arguments, ?int $expected): void
     {
-        $this->assertSame(2, $this->converter->convertToWeatherNumber(2));
-        $this->assertSame(2, $this->converter->convertToWeatherNumber('曇り'));
-        $this->assertSame(2, $this->converter->convertToWeatherNumber('曇'));
-        $this->assertNull($this->converter->convertToWeatherNumber('競艇'));
-        $this->assertNull($this->converter->convertToWeatherNumber(null));
+        $this->assertSame($expected, $this->converter->convertToWeatherNumber(...$arguments));
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testWeatherName(): void
+    #[DataProviderExternal(WeatherConverterDataProvider::class, 'convertToWeatherNameProvider')]
+    public function testConvertToWeatherName(array $arguments, ?string $expected): void
     {
-        $this->assertSame('曇り', $this->converter->convertToWeatherName(2));
-        $this->assertSame('曇り', $this->converter->convertToWeatherName('曇り'));
-        $this->assertSame('曇り', $this->converter->convertToWeatherName('曇'));
-        $this->assertNull($this->converter->convertToWeatherName('競艇'));
-        $this->assertNull($this->converter->convertToWeatherName(null));
+        $this->assertSame($expected, $this->converter->convertToWeatherName(...$arguments));
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testWeatherShortName(): void
+    #[DataProviderExternal(WeatherConverterDataProvider::class, 'convertToWeatherShortNameProvider')]
+    public function testConvertToWeatherShortName(array $arguments, ?string $expected): void
     {
-        $this->assertSame('曇', $this->converter->convertToWeatherShortName(2));
-        $this->assertSame('曇', $this->converter->convertToWeatherShortName('曇り'));
-        $this->assertSame('曇', $this->converter->convertToWeatherShortName('曇'));
-        $this->assertNull($this->converter->convertToWeatherShortName('競艇'));
-        $this->assertNull($this->converter->convertToWeatherShortName(null));
+        $this->assertSame($expected, $this->converter->convertToWeatherShortName(...$arguments));
     }
 }

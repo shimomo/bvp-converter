@@ -6,6 +6,7 @@ namespace BVP\Converter\Tests\Converters;
 
 use BVP\Converter\Converters\CoreConverter;
 use BVP\Converter\Converters\WindDirectionConverter;
+use PHPUnit\Framework\Attributes\DataProviderExternal;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -29,24 +30,24 @@ final class WindDirectionConverterTest extends TestCase
     }
 
     /**
+     * @param  array     $arguments
+     * @param  int|null  $expected
      * @return void
      */
-    public function testWindDirectionId(): void
+    #[DataProviderExternal(WindDirectionConverterDataProvider::class, 'convertToWindDirectionNumberProvider')]
+    public function testConvertToWindDirectionNumber(array $arguments, ?int $expected): void
     {
-        $this->assertSame(4, $this->converter->convertToWindDirectionNumber(4));
-        $this->assertSame(4, $this->converter->convertToWindDirectionNumber('東北東'));
-        $this->assertNull($this->converter->convertToWindDirectionNumber('競艇'));
-        $this->assertNull($this->converter->convertToWindDirectionNumber(null));
+        $this->assertSame($expected, $this->converter->convertToWindDirectionNumber(...$arguments));
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testWindDirectionName(): void
+    #[DataProviderExternal(WindDirectionConverterDataProvider::class, 'convertToWindDirectionNameProvider')]
+    public function testConvertToWindDirectionName(array $arguments, ?string $expected): void
     {
-        $this->assertSame('東北東', $this->converter->convertToWindDirectionName(4));
-        $this->assertSame('東北東', $this->converter->convertToWindDirectionName('東北東'));
-        $this->assertNull($this->converter->convertToWindDirectionName('競艇'));
-        $this->assertNull($this->converter->convertToWindDirectionName(null));
+        $this->assertSame($expected, $this->converter->convertToWindDirectionName(...$arguments));
     }
 }

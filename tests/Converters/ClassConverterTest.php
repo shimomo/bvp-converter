@@ -6,6 +6,7 @@ namespace BVP\Converter\Tests\Converters;
 
 use BVP\Converter\Converters\ClassConverter;
 use BVP\Converter\Converters\CoreConverter;
+use PHPUnit\Framework\Attributes\DataProviderExternal;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -29,38 +30,35 @@ final class ClassConverterTest extends TestCase
     }
 
     /**
+     * @param  array     $arguments
+     * @param  int|null  $expected
      * @return void
      */
-    public function testClassId(): void
+    #[DataProviderExternal(ClassConverterDataProvider::class, 'convertToClassNumberProvider')]
+    public function testConvertToClassNumber(array $arguments, ?int $expected): void
     {
-        $this->assertSame(4, $this->converter->convertToClassNumber(4));
-        $this->assertSame(4, $this->converter->convertToClassNumber('B2級'));
-        $this->assertSame(4, $this->converter->convertToClassNumber('B2'));
-        $this->assertNull($this->converter->convertToClassNumber('競艇'));
-        $this->assertNull($this->converter->convertToClassNumber(null));
+        $this->assertSame($expected, $this->converter->convertToClassNumber(...$arguments));
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testClassName(): void
+    #[DataProviderExternal(ClassConverterDataProvider::class, 'convertToClassNameProvider')]
+    public function testConvertToClassName(array $arguments, ?string $expected): void
     {
-        $this->assertSame('B2級', $this->converter->convertToClassName(4));
-        $this->assertSame('B2級', $this->converter->convertToClassName('B2級'));
-        $this->assertSame('B2級', $this->converter->convertToClassName('B2'));
-        $this->assertNull($this->converter->convertToClassName('競艇'));
-        $this->assertNull($this->converter->convertToClassName(null));
+        $this->assertSame($expected, $this->converter->convertToClassName(...$arguments));
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testClassShortName(): void
+    #[DataProviderExternal(ClassConverterDataProvider::class, 'convertToClassShortNameProvider')]
+    public function testConvertToClassShortName(array $arguments, ?string $expected): void
     {
-        $this->assertSame('B2', $this->converter->convertToClassShortName(4));
-        $this->assertSame('B2', $this->converter->convertToClassShortName('B2級'));
-        $this->assertSame('B2', $this->converter->convertToClassShortName('B2'));
-        $this->assertNull($this->converter->convertToClassShortName('競艇'));
-        $this->assertNull($this->converter->convertToClassShortName(null));
+        $this->assertSame($expected, $this->converter->convertToClassShortName(...$arguments));
     }
 }

@@ -6,6 +6,7 @@ namespace BVP\Converter\Tests\Converters;
 
 use BVP\Converter\Converters\CoreConverter;
 use BVP\Converter\Converters\PlaceConverter;
+use PHPUnit\Framework\Attributes\DataProviderExternal;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -29,38 +30,35 @@ final class PlaceConverterTest extends TestCase
     }
 
     /**
+     * @param  array     $arguments
+     * @param  int|null  $expected
      * @return void
      */
-    public function testPlaceId(): void
+    #[DataProviderExternal(PlaceConverterDataProvider::class, 'convertToPlaceNumberProvider')]
+    public function testConvertToPlaceNumber(array $arguments, ?int $expected): void
     {
-        $this->assertSame(8, $this->converter->convertToPlaceNumber(8));
-        $this->assertSame(8, $this->converter->convertToPlaceNumber('エンスト失格'));
-        $this->assertSame(8, $this->converter->convertToPlaceNumber('エ'));
-        $this->assertNull($this->converter->convertToPlaceNumber('競艇'));
-        $this->assertNull($this->converter->convertToPlaceNumber(null));
+        $this->assertSame($expected, $this->converter->convertToPlaceNumber(...$arguments));
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testPlaceName(): void
+    #[DataProviderExternal(PlaceConverterDataProvider::class, 'convertToPlaceNameProvider')]
+    public function testConvertToPlaceName(array $arguments, ?string $expected): void
     {
-        $this->assertSame('エンスト失格', $this->converter->convertToPlaceName(8));
-        $this->assertSame('エンスト失格', $this->converter->convertToPlaceName('エンスト失格'));
-        $this->assertSame('エンスト失格', $this->converter->convertToPlaceName('エ'));
-        $this->assertNull($this->converter->convertToPlaceName('競艇'));
-        $this->assertNull($this->converter->convertToPlaceName(null));
+        $this->assertSame($expected, $this->converter->convertToPlaceName(...$arguments));
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testPlaceShortName(): void
+    #[DataProviderExternal(PlaceConverterDataProvider::class, 'convertToPlaceShortNameProvider')]
+    public function testConvertToPlaceShortName(array $arguments, ?string $expected): void
     {
-        $this->assertSame('エ', $this->converter->convertToPlaceShortName(8));
-        $this->assertSame('エ', $this->converter->convertToPlaceShortName('エンスト失格'));
-        $this->assertSame('エ', $this->converter->convertToPlaceShortName('エ'));
-        $this->assertNull($this->converter->convertToPlaceShortName('競艇'));
-        $this->assertNull($this->converter->convertToPlaceShortName(null));
+        $this->assertSame($expected, $this->converter->convertToPlaceShortName(...$arguments));
     }
 }

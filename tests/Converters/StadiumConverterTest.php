@@ -6,6 +6,7 @@ namespace BVP\Converter\Tests\Converters;
 
 use BVP\Converter\Converters\CoreConverter;
 use BVP\Converter\Converters\StadiumConverter;
+use PHPUnit\Framework\Attributes\DataProviderExternal;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -29,92 +30,79 @@ final class StadiumConverterTest extends TestCase
     }
 
     /**
+     * @param  array     $arguments
+     * @param  int|null  $expected
      * @return void
      */
-    public function testStadiumId(): void
+    #[DataProviderExternal(StadiumConverterDataProvider::class, 'convertToStadiumNumberProvider')]
+    public function testConvertToStadiumNumber(array $arguments, ?int $expected): void
     {
-        $this->assertSame(24, $this->converter->convertToStadiumNumber(24));
-        $this->assertSame(24, $this->converter->convertToStadiumNumber('ボートレース大村'));
-        $this->assertSame(24, $this->converter->convertToStadiumNumber('大村'));
-        $this->assertSame(24, $this->converter->convertToStadiumNumber('おおむら'));
-        $this->assertSame(24, $this->converter->convertToStadiumNumber('オオムラ'));
-        $this->assertSame(24, $this->converter->convertToStadiumNumber('omura'));
-        $this->assertNull($this->converter->convertToStadiumNumber('競艇'));
-        $this->assertNull($this->converter->convertToStadiumNumber(null));
+        $this->assertSame($expected, $this->converter->convertToStadiumNumber(...$arguments));
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testStadiumName(): void
+    #[DataProviderExternal(StadiumConverterDataProvider::class, 'convertToStadiumNameProvider')]
+    public function testConvertToStadiumName(array $arguments, ?string $expected): void
     {
-        $this->assertSame('ボートレース大村', $this->converter->convertToStadiumName(24));
-        $this->assertSame('ボートレース大村', $this->converter->convertToStadiumName('ボートレース大村'));
-        $this->assertSame('ボートレース大村', $this->converter->convertToStadiumName('大村'));
-        $this->assertSame('ボートレース大村', $this->converter->convertToStadiumName('おおむら'));
-        $this->assertSame('ボートレース大村', $this->converter->convertToStadiumName('オオムラ'));
-        $this->assertSame('ボートレース大村', $this->converter->convertToStadiumName('omura'));
-        $this->assertNull($this->converter->convertToStadiumName('競艇'));
-        $this->assertNull($this->converter->convertToStadiumName(null));
+        $this->assertSame($expected, $this->converter->convertToStadiumName(...$arguments));
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testStadiumShortName(): void
+    #[DataProviderExternal(StadiumConverterDataProvider::class, 'convertToStadiumShortNameProvider')]
+    public function testConvertToStadiumShortName(array $arguments, ?string $expected): void
     {
-        $this->assertSame('大村', $this->converter->convertToStadiumShortName(24));
-        $this->assertSame('大村', $this->converter->convertToStadiumShortName('ボートレース大村'));
-        $this->assertSame('大村', $this->converter->convertToStadiumShortName('大村'));
-        $this->assertSame('大村', $this->converter->convertToStadiumShortName('おおむら'));
-        $this->assertSame('大村', $this->converter->convertToStadiumShortName('オオムラ'));
-        $this->assertSame('大村', $this->converter->convertToStadiumShortName('omura'));
-        $this->assertNull($this->converter->convertToStadiumShortName('競艇'));
-        $this->assertNull($this->converter->convertToStadiumShortName(null));
+        $this->assertSame($expected, $this->converter->convertToStadiumShortName(...$arguments));
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testStadiumHiraganaName(): void
+    #[DataProviderExternal(StadiumConverterDataProvider::class, 'convertToStadiumHiraganaNameProvider')]
+    public function testConvertToStadiumHiraganaName(array $arguments, ?string $expected): void
     {
-        $this->assertSame('ぼーとれーすおおむら', $this->converter->convertToStadiumHiraganaName(24));
-        $this->assertSame('ぼーとれーすおおむら', $this->converter->convertToStadiumHiraganaName('ボートレース大村'));
-        $this->assertSame('ぼーとれーすおおむら', $this->converter->convertToStadiumHiraganaName('大村'));
-        $this->assertSame('ぼーとれーすおおむら', $this->converter->convertToStadiumHiraganaName('おおむら'));
-        $this->assertSame('ぼーとれーすおおむら', $this->converter->convertToStadiumHiraganaName('オオムラ'));
-        $this->assertSame('ぼーとれーすおおむら', $this->converter->convertToStadiumHiraganaName('omura'));
-        $this->assertNull($this->converter->convertToStadiumHiraganaName('競艇'));
-        $this->assertNull($this->converter->convertToStadiumHiraganaName(null));
+        $this->assertSame($expected, $this->converter->convertToStadiumHiraganaName(...$arguments));
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testStadiumKatakanaName(): void
+    #[DataProviderExternal(StadiumConverterDataProvider::class, 'convertToStadiumKatakanaNameProvider')]
+    public function testConvertToStadiumKatakanaName(array $arguments, ?string $expected): void
     {
-        $this->assertSame('ボートレースオオムラ', $this->converter->convertToStadiumKatakanaName(24));
-        $this->assertSame('ボートレースオオムラ', $this->converter->convertToStadiumKatakanaName('ボートレース大村'));
-        $this->assertSame('ボートレースオオムラ', $this->converter->convertToStadiumKatakanaName('大村'));
-        $this->assertSame('ボートレースオオムラ', $this->converter->convertToStadiumKatakanaName('おおむら'));
-        $this->assertSame('ボートレースオオムラ', $this->converter->convertToStadiumKatakanaName('オオムラ'));
-        $this->assertSame('ボートレースオオムラ', $this->converter->convertToStadiumKatakanaName('omura'));
-        $this->assertNull($this->converter->convertToStadiumKatakanaName('競艇'));
-        $this->assertNull($this->converter->convertToStadiumKatakanaName(null));
+        $this->assertSame($expected, $this->converter->convertToStadiumKatakanaName(...$arguments));
     }
 
     /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
      * @return void
      */
-    public function testStadiumEnglishName(): void
+    #[DataProviderExternal(StadiumConverterDataProvider::class, 'convertToStadiumEnglishNameProvider')]
+    public function testConvertToStadiumEnglishName(array $arguments, ?string $expected): void
     {
-        $this->assertSame('omura', $this->converter->convertToStadiumEnglishName(24));
-        $this->assertSame('omura', $this->converter->convertToStadiumEnglishName('ボートレース大村'));
-        $this->assertSame('omura', $this->converter->convertToStadiumEnglishName('大村'));
-        $this->assertSame('omura', $this->converter->convertToStadiumEnglishName('おおむら'));
-        $this->assertSame('omura', $this->converter->convertToStadiumEnglishName('オオムラ'));
-        $this->assertSame('omura', $this->converter->convertToStadiumEnglishName('omura'));
-        $this->assertNull($this->converter->convertToStadiumEnglishName('競艇'));
-        $this->assertNull($this->converter->convertToStadiumEnglishName(null));
+        $this->assertSame($expected, $this->converter->convertToStadiumEnglishName(...$arguments));
+    }
+
+    /**
+     * @param  array        $arguments
+     * @param  string|null  $expected
+     * @return void
+     */
+    #[DataProviderExternal(StadiumConverterDataProvider::class, 'convertToStadiumUrlProvider')]
+    public function testConvertToStadiumUrl(array $arguments, ?string $expected): void
+    {
+        $this->assertSame($expected, $this->converter->convertToStadiumUrl(...$arguments));
     }
 }
