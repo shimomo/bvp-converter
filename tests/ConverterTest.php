@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace BVP\Converter\Tests;
 
 use BVP\Converter\Converter;
+use BVP\Converter\ConverterInterface;
 use PHPUnit\Framework\Attributes\DataProviderExternal;
 use PHPUnit\Framework\TestCase;
 
@@ -470,5 +471,35 @@ final class ConverterTest extends TestCase
         );
 
         Converter::invalid(1);
+    }
+
+    /**
+     * @return void
+     */
+    public function testGetInstance(): void
+    {
+        Converter::resetInstance();
+        $this->assertInstanceOf(ConverterInterface::class, Converter::getInstance());
+    }
+
+    /**
+     * @return void
+     */
+    public function testCreateInstance(): void
+    {
+        Converter::resetInstance();
+        $this->assertInstanceOf(ConverterInterface::class, Converter::createInstance());
+    }
+
+    /**
+     * @return void
+     */
+    public function testResetInstance(): void
+    {
+        Converter::resetInstance();
+        $instance1 = Converter::getInstance();
+        Converter::resetInstance();
+        $instance2 = Converter::getInstance();
+        $this->assertNotSame($instance1, $instance2);
     }
 }
