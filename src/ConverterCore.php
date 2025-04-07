@@ -56,8 +56,8 @@ class ConverterCore implements ConverterCoreInterface
 
         $messageType = $countArguments === 0 ? 'few' : 'many';
         throw new \InvalidArgumentException(
-            'Too ' . $messageType . ' arguments to function ' . self::class . '::' . $name . '(), ' .
-            $countArguments . ' passed and exactly 1 expected.'
+            __METHOD__ . "() - Too {$messageType} arguments to function " . self::class . "::{$name}(), " .
+            "{$countArguments} passed and exactly 1 expected."
         );
     }
 
@@ -76,7 +76,7 @@ class ConverterCore implements ConverterCoreInterface
         $converterInstance = $this->getConverterInstance($specificConverterClass, $coreConverterClass);
         if (!method_exists($converterInstance, $name)) {
             throw new \BadMethodCallException(
-                'Call to undefined method ' . $converterInstance::class . '::' . $name . '().'
+                __METHOD__ . "() - Call to undefined method " . $converterInstance::class . "::{$name}()."
             );
         }
 
