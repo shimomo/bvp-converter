@@ -18,7 +18,7 @@ class PrefectureConverter extends BaseConverter implements PrefectureConverterIn
      */
     public function convertToPrefectureNumber(string|int|null $value): ?int
     {
-        return $this->search($value)['id'] ?? null;
+        return $this->search($value)['number'] ?? null;
     }
 
     /**
@@ -80,11 +80,11 @@ class PrefectureConverter extends BaseConverter implements PrefectureConverterIn
             return null;
         }
 
-        return (Prefecture::byId($value)
+        return Prefecture::byNumber($value)
             ?? Prefecture::byName($value)
             ?? Prefecture::byShortName($value)
             ?? Prefecture::byHiraganaName($value)
             ?? Prefecture::byKatakanaName($value)
-            ?? Prefecture::byEnglishName($value))?->toArray();
+            ?? Prefecture::byEnglishName($value);
     }
 }
