@@ -10,20 +10,6 @@ namespace BVP\Converter;
 interface ConverterInterface
 {
     /**
-     * @param  string  $name
-     * @param  array   $arguments
-     * @return string|float|int|null
-     */
-    public function __call(string $name, array $arguments): string|float|int|null;
-
-    /**
-     * @param  string  $name
-     * @param  array   $arguments
-     * @return string|float|int|null
-     */
-    public static function __callStatic(string $name, array $arguments): string|float|int|null;
-
-    /**
      * @param  \BVP\Converter\ConverterCoreInterface|null  $converterCore
      * @return \BVP\Converter\ConverterInterface
      */
