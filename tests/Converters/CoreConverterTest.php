@@ -23,7 +23,7 @@ final class CoreConverterTest extends TestCase
      */
     protected function setUp(): void
     {
-        $this->converter ??= new CoreConverter();
+        $this->converter = new CoreConverter();
     }
 
     /**

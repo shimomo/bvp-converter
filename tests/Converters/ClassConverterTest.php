@@ -24,7 +24,7 @@ final class ClassConverterTest extends TestCase
      */
     protected function setUp(): void
     {
-        $this->converter ??= new ClassConverter(
+        $this->converter = new ClassConverter(
             new CoreConverter()
         );
     }

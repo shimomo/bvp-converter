@@ -24,7 +24,7 @@ final class StadiumConverterTest extends TestCase
      */
     protected function setUp(): void
     {
-        $this->converter ??= new StadiumConverter(
+        $this->converter = new StadiumConverter(
             new CoreConverter()
         );
     }

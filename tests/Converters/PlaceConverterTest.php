@@ -24,7 +24,7 @@ final class PlaceConverterTest extends TestCase
      */
     protected function setUp(): void
     {
-        $this->converter ??= new PlaceConverter(
+        $this->converter = new PlaceConverter(
             new CoreConverter()
         );
     }

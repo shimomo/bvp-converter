@@ -24,7 +24,7 @@ final class PrefectureConverterTest extends TestCase
      */
     protected function setUp(): void
     {
-        $this->converter ??= new PrefectureConverter(
+        $this->converter = new PrefectureConverter(
             new CoreConverter()
         );
     }

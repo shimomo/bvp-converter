@@ -24,7 +24,7 @@ final class TechniqueConverterTest extends TestCase
      */
     protected function setUp(): void
     {
-        $this->converter ??= new TechniqueConverter(
+        $this->converter = new TechniqueConverter(
             new CoreConverter()
         );
     }

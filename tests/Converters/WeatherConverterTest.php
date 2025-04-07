@@ -24,7 +24,7 @@ final class WeatherConverterTest extends TestCase
      */
     protected function setUp(): void
     {
-        $this->converter ??= new WeatherConverter(
+        $this->converter = new WeatherConverter(
             new CoreConverter()
         );
     }

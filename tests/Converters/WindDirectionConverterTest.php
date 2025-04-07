@@ -24,7 +24,7 @@ final class WindDirectionConverterTest extends TestCase
      */
     protected function setUp(): void
     {
-        $this->converter ??= new WindDirectionConverter(
+        $this->converter = new WindDirectionConverter(
             new CoreConverter()
         );
     }
