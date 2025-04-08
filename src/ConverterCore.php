@@ -30,13 +30,13 @@ class ConverterCore implements ConverterCoreInterface
      */
     private array $converterClasses = [
         'convertToClass' => ClassConverter::class,
-        'core' => CoreConverter::class,
         'convertToPlace' => PlaceConverter::class,
         'convertToPrefecture' => PrefectureConverter::class,
         'convertToStadium' => StadiumConverter::class,
         'convertToTechnique' => TechniqueConverter::class,
         'convertToWeather' => WeatherConverter::class,
         'convertToWindDirection' => WindDirectionConverter::class,
+        'convert' => CoreConverter::class,
         'parse' => CoreParser::class,
     ];
 
@@ -71,7 +71,7 @@ class ConverterCore implements ConverterCoreInterface
     private function convert(string $name, string|float|int|null $value): string|float|int|null
     {
         $specificConverterClass = $this->resolveConverterClass($name);
-        $coreConverterClass = $this->resolveConverterClass('core');
+        $coreConverterClass = $this->resolveConverterClass('convert');
 
         $converterInstance = $this->getConverterInstance($specificConverterClass, $coreConverterClass);
         if (!method_exists($converterInstance, $name)) {
@@ -105,6 +105,6 @@ class ConverterCore implements ConverterCoreInterface
             return str_starts_with($name, $key) && $name !== $key;
         }, ARRAY_FILTER_USE_KEY);
 
-        return array_shift($filtered) ?? $this->converterClasses['core'];
+        return array_shift($filtered) ?? $this->converterClasses['convert'];
     }
 }
